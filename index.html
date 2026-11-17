@@ -1,0 +1,2582 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NKÜ Çorlu MYO Fizik I Vize Rehberi</title>
+    <meta
+      name="description"
+      content="Elektronik Teknolojisi Bölümü Fizik I 1. Vize sınavı için kapsamlı ders notları, formüller, çözümlü tahta ve PDF örnekleri, etkileşimli simülatörler ve A4 PDF çıktısı."
+    />
+    <meta property="og:title" content="NKÜ Çorlu MYO Fizik I Vize Rehberi" />
+    <meta
+      property="og:description"
+      content="Elektronik Teknolojisi Bölümü Fizik I 1. Vize sınavı için kapsamlı ders notları, formüller, çözümlü tahta ve PDF örnekleri, etkileşimli simülatörler ve A4 PDF çıktısı."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-canvas: #f8fafc;
+        --bg-surface: #ffffff;
+        --bg-subtle: #f1f5f9;
+        --border: #e2e8f0;
+        --border-strong: #cbd5e1;
+        --text-main: #0f172a;
+        --text-body: #334155;
+        --text-muted: #64748b;
+        --accent: #0284c7;
+        --accent-hover: #0369a1;
+        --accent-soft: #f0f9ff;
+        --accent-border: #bae6fd;
+        --emerald-text: #065f46;
+        --emerald-bg: #ecfdf5;
+        --emerald-border: #a7f3d0;
+        --amber-text: #78350f;
+        --amber-bg: #fffbeb;
+        --amber-border: #fde68a;
+        --red-text: #b91c1c;
+        --red-bg: #fef2f2;
+        --red-border: #fecaca;
+        --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+      }
+
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-family: var(--font-sans);
+        scroll-behavior: smooth;
+        color: var(--text-main);
+        background: var(--bg-canvas);
+      }
+
+      body {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.65;
+        color: var(--text-main);
+        background: var(--bg-canvas);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      h1, h2, h3, h4, p {
+        margin: 0;
+      }
+
+      h1, h2, h3 {
+        text-wrap: balance;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button {
+        font-family: inherit;
+        cursor: pointer;
+      }
+
+      .mono {
+        font-family: var(--font-mono);
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* Top Navigation Bar (3-zone contract) */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(6px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .header-inner {
+        max-width: 1152px;
+        margin: 0 auto;
+        padding: 0 24px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+      }
+
+      .brand {
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--text-main);
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #475569;
+      }
+
+      .nav-links a {
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: color 0.15s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--text-main);
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        font-size: 12px;
+        font-weight: 600;
+        color: #ffffff;
+        background: var(--accent);
+        border: 1px solid var(--accent);
+        border-radius: 8px;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: background 0.15s ease;
+      }
+
+      .btn-primary:hover:not(:disabled) {
+        background: var(--accent-hover);
+      }
+
+      .btn-primary:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+      }
+
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 8px 14px;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--text-body);
+        background: var(--bg-subtle);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: background 0.15s ease;
+      }
+
+      .btn-secondary:hover {
+        background: #e2e8f0;
+      }
+
+      .btn-outline-accent {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 8px 14px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #0369a1;
+        background: var(--accent-soft);
+        border: 1px solid var(--accent-border);
+        border-radius: 8px;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: background 0.15s ease;
+      }
+
+      .btn-outline-accent:hover {
+        background: #e0f2fe;
+      }
+
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 8px 14px;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--text-body);
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: background 0.15s ease;
+      }
+
+      .btn-outline:hover {
+        background: var(--bg-canvas);
+      }
+
+      /* Main Layout */
+      .main-container {
+        max-width: 1152px;
+        margin: 0 auto;
+        padding: 32px 24px 48px;
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+      }
+
+      .card {
+        background: var(--bg-surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 28px 32px;
+      }
+
+      /* Hero */
+      .hero-top {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+
+      .hero-copy {
+        max-width: 720px;
+      }
+
+      .meta-line {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--text-muted);
+        margin-bottom: 8px;
+      }
+
+      .hero-title {
+        font-size: clamp(24px, 3.2vw, 34px);
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        color: var(--text-main);
+        margin-bottom: 12px;
+      }
+
+      .hero-desc {
+        font-size: 15px;
+        color: #475569;
+        line-height: 1.65;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .status-banner {
+        margin-top: 16px;
+        padding: 8px 14px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #075985;
+        background: var(--accent-soft);
+        border: 1px solid var(--accent-border);
+        border-radius: 8px;
+        display: none;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .status-banner.visible {
+        display: flex;
+      }
+
+      /* Filter Toolbar */
+      .filter-bar {
+        margin-top: 24px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .filter-group {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 4px;
+        padding: 4px;
+        background: var(--bg-subtle);
+        border-radius: 8px;
+      }
+
+      .filter-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #475569;
+        background: transparent;
+        border: none;
+        border-radius: 6px;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: all 0.15s ease;
+      }
+
+      .filter-btn:hover {
+        color: var(--text-main);
+      }
+
+      .filter-btn.active {
+        background: #ffffff;
+        color: var(--text-main);
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+      }
+
+      .g-note {
+        font-size: 12px;
+        color: var(--text-muted);
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      /* Chapter Sections */
+      .chapter-section {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .chapter-section.hidden-chapter {
+        display: none;
+      }
+
+      .chapter-header {
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 18px;
+      }
+
+      .chapter-kicker {
+        font-size: 12px;
+        font-weight: 600;
+        color: #0369a1;
+        margin-bottom: 4px;
+      }
+
+      .chapter-title {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: -0.015em;
+        color: var(--text-main);
+        margin-bottom: 6px;
+      }
+
+      .chapter-subtitle {
+        font-size: 14px;
+        color: #475569;
+      }
+
+      .subhead {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text-main);
+        margin-bottom: 14px;
+      }
+
+      /* Grids */
+      .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .grid-12 {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 24px;
+        align-items: start;
+      }
+
+      .col-7 { grid-column: span 7; }
+      .col-6 { grid-column: span 6; }
+      .col-5 { grid-column: span 5; }
+
+      .subpanel {
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 16px;
+        background: rgba(248, 250, 252, 0.65);
+      }
+
+      .subpanel-white {
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 16px;
+        background: #ffffff;
+      }
+
+      .def-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 6px;
+      }
+
+      .def-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text-main);
+      }
+
+      .def-unit {
+        font-size: 12px;
+        color: #0369a1;
+        flex-shrink: 0;
+      }
+
+      .def-text {
+        font-size: 14px;
+        color: var(--text-body);
+        line-height: 1.6;
+      }
+
+      /* Tables */
+      .table-wrap {
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 12px;
+        text-align: left;
+      }
+
+      th {
+        padding: 8px 8px 8px 0;
+        font-weight: 500;
+        color: var(--text-muted);
+        border-bottom: 1px solid var(--border);
+      }
+
+      td {
+        padding: 8px 8px 8px 0;
+        border-bottom: 1px solid var(--bg-subtle);
+        color: var(--text-main);
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      .prefix-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 7px 0;
+        font-size: 12px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .prefix-row:last-child {
+        border-bottom: none;
+      }
+
+      /* Math & Formula Cards */
+      .formula-label {
+        font-size: 12px;
+        font-weight: 600;
+        color: #0369a1;
+        margin-bottom: 8px;
+      }
+
+      .math-box {
+        background: var(--bg-canvas);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px 14px;
+        margin-bottom: 8px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 16px;
+        color: var(--text-main);
+        overflow-x: auto;
+        line-height: 1.75;
+      }
+
+      .math-inline-box {
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px 14px;
+      }
+
+      .math-line {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 15px;
+        color: var(--text-main);
+        margin: 6px 0;
+        overflow-x: auto;
+      }
+
+      .frac {
+        display: inline-flex;
+        flex-direction: column;
+        vertical-align: middle;
+        text-align: center;
+        margin: 0 3px;
+        font-size: 0.92em;
+        line-height: 1.25;
+      }
+
+      .frac-num {
+        border-bottom: 1px solid var(--text-main);
+        padding: 0 4px 2px;
+      }
+
+      .frac-den {
+        padding: 2px 4px 0;
+      }
+
+      .vec {
+        text-decoration: overline;
+        font-weight: 600;
+      }
+
+      .sqrt {
+        display: inline-block;
+        border-top: 1px solid var(--text-main);
+        padding-top: 1px;
+        margin-left: 1px;
+      }
+
+      .formula-desc {
+        font-size: 12px;
+        color: #475569;
+        line-height: 1.55;
+      }
+
+      /* Solved Examples */
+      .examples-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .example-card {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        background: rgba(248, 250, 252, 0.55);
+      }
+
+      .example-source {
+        font-size: 12px;
+        font-weight: 500;
+        color: #0369a1;
+        margin-bottom: 4px;
+      }
+
+      .example-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text-main);
+        margin-bottom: 8px;
+      }
+
+      .example-question {
+        font-size: 14px;
+        color: #1e293b;
+        margin-bottom: 16px;
+        line-height: 1.6;
+      }
+
+      .steps-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .step-box {
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px 14px;
+      }
+
+      .step-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text-main);
+        margin-bottom: 4px;
+      }
+
+      .step-detail {
+        font-size: 12px;
+        color: #475569;
+        line-height: 1.55;
+      }
+
+      .result-box {
+        background: var(--emerald-bg);
+        border: 1px solid var(--emerald-border);
+        border-radius: 8px;
+        padding: 10px 14px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--emerald-text);
+      }
+
+      .tip-box {
+        background: var(--amber-bg);
+        border: 1px solid var(--amber-border);
+        border-radius: 8px;
+        padding: 10px 14px;
+        font-size: 12px;
+        color: var(--amber-text);
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        line-height: 1.55;
+      }
+
+      /* Interactive Labs */
+      .lab-box {
+        background: var(--bg-canvas);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+      }
+
+      .lab-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 16px;
+      }
+
+      .lab-svg {
+        width: 100%;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        display: block;
+      }
+
+      .diagram-svg {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .slider-label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--text-body);
+        margin-bottom: 4px;
+      }
+
+      input[type="range"] {
+        width: 100%;
+        accent-color: var(--accent);
+        cursor: pointer;
+      }
+
+      .metrics-3 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px;
+        text-align: center;
+      }
+
+      .metrics-4 {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .metric-tile {
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px 12px;
+      }
+
+      .metric-lbl {
+        font-size: 11px;
+        color: var(--text-muted);
+      }
+
+      .metric-val {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text-main);
+        margin-top: 2px;
+      }
+
+      /* Takeaways */
+      .takeaways {
+        border-top: 1px solid var(--border);
+        padding-top: 18px;
+      }
+
+      .takeaways ul {
+        margin: 8px 0 0;
+        padding-left: 20px;
+        color: var(--text-body);
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      /* Formula Sheet rows */
+      .sheet-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 7px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+      }
+
+      .sheet-row:last-child {
+        border-bottom: none;
+      }
+
+      /* Quiz */
+      .quiz-card {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 18px;
+        background: rgba(248, 250, 252, 0.6);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .quiz-meta {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-bottom: 8px;
+      }
+
+      .quiz-q {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-main);
+        margin-bottom: 12px;
+        line-height: 1.55;
+      }
+
+      .quiz-options {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .quiz-opt {
+        width: 100%;
+        text-align: left;
+        padding: 9px 12px;
+        font-size: 12px;
+        color: #1e293b;
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        transition: border-color 0.15s ease, background 0.15s ease;
+      }
+
+      .quiz-opt:hover {
+        border-color: #7dd3fc;
+      }
+
+      .quiz-opt.selected {
+        border-color: var(--accent);
+        background: var(--accent-soft);
+        color: #0c4a6e;
+        font-weight: 500;
+      }
+
+      .quiz-opt.correct {
+        border-color: #10b981;
+        background: var(--emerald-bg);
+        color: var(--emerald-text);
+        font-weight: 600;
+      }
+
+      .quiz-opt.wrong {
+        border-color: #f87171;
+        background: var(--red-bg);
+        color: var(--red-text);
+      }
+
+      .quiz-exp {
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px solid var(--border);
+        font-size: 12px;
+        color: var(--text-body);
+        line-height: 1.55;
+      }
+
+      /* Footer */
+      .site-footer {
+        border-top: 1px solid var(--border);
+        background: #ffffff;
+        padding: 24px;
+      }
+
+      .footer-inner {
+        max-width: 1152px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+
+      .print-only {
+        display: none;
+      }
+
+      /* Responsive */
+      @media (max-width: 960px) {
+        .grid-12 {
+          grid-template-columns: 1fr;
+        }
+        .col-7, .col-6, .col-5 {
+          grid-column: span 1;
+        }
+        .metrics-4 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .header-inner {
+          padding: 0 16px;
+        }
+        .main-container {
+          padding: 20px 16px 36px;
+          gap: 24px;
+        }
+        .card {
+          padding: 20px;
+        }
+        .grid-2 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* A4 Print CSS */
+      @media print {
+        @page {
+          size: A4 portrait;
+          margin: 14mm 14mm 16mm 14mm;
+        }
+
+        html, body {
+          background: #ffffff !important;
+          color: #0f172a !important;
+          font-size: 10.5pt !important;
+          line-height: 1.5 !important;
+        }
+
+        .no-print {
+          display: none !important;
+        }
+
+        .print-only {
+          display: block !important;
+          border-bottom: 2px solid #0f172a;
+          padding-bottom: 10px;
+          margin-bottom: 20px;
+        }
+
+        .chapter-section.hidden-chapter {
+          display: flex !important;
+        }
+
+        .card, .example-card, .subpanel, .subpanel-white {
+          box-shadow: none !important;
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+
+        .print-break-before {
+          break-before: page;
+          page-break-before: always;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Bar Contract: strictly 3 zones -->
+    <header class="site-header no-print">
+      <div class="header-inner">
+        <a href="#top" class="brand">NKÜ Fizik I</a>
+
+        <nav class="nav-links" aria-label="Konu Başlıkları">
+          <a href="#olcu" data-nav="olcu">Ölçü</a>
+          <a href="#vektorler" data-nav="vektorler">Vektörler</a>
+          <a href="#hiz-ivme" data-nav="hiz-ivme">Hız ve Sürat</a>
+          <a href="#anlik-hiz" data-nav="anlik-hiz">Anlık Hız</a>
+          <a href="#serbest-dusme" data-nav="serbest-dusme">Serbest Düşme</a>
+        </nav>
+
+        <button type="button" id="btn-pdf-download" class="btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          <span>PDF İndir</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="top" class="main-container">
+      <!-- Print-Only University Header -->
+      <div class="print-only">
+        <p style="font-size:11px;font-weight:600;color:#0369a1;">
+          Tekirdağ Namık Kemal Üniversitesi · Çorlu Meslek Yüksekokulu · Elektronik Teknolojisi Programı
+        </p>
+        <h1 style="font-size:20px;font-weight:700;margin-top:4px;">
+          Fizik I — 1. Vize Sınavı Kapsamlı Ders Notu ve Formül Özeti
+        </h1>
+        <p style="font-size:11px;color:#475569;margin-top:2px;">
+          g = 10 m/s² (hassas sorularda 9,8 m/s²)
+        </p>
+      </div>
+
+      <!-- Hero Card -->
+      <section class="card no-print">
+        <div class="hero-top">
+          <div class="hero-copy">
+            <div class="meta-line">
+              <span>Tekirdağ Namık Kemal Üniversitesi</span>
+              <span aria-hidden="true">·</span>
+              <span>Çorlu Meslek Yüksekokulu</span>
+              <span aria-hidden="true">·</span>
+              <span>Elektronik Teknolojisi Programı</span>
+            </div>
+            <h1 class="hero-title">
+              Fizik I — 1. Vize Sınavı Kapsamlı Ders Notu ve Formül Özeti
+            </h1>
+            <p class="hero-desc">
+              Ders PDF’indeki tanımlar, sınıf tahta fotoğraflarındaki 5 temel hareket denklemi ve
+              tablet notlarındaki tüm örnek sorular tek sayfada; formüller, SVG çizimler,
+              etkileşimli laboratuvarlar ve doğrudan A4 PDF çıktısıyla.
+            </p>
+          </div>
+
+          <div class="hero-actions">
+            <button type="button" id="btn-print-a4" class="btn-secondary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="6 9 6 2 18 2 18 9" />
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                <rect x="6" y="14" width="12" height="8" />
+              </svg>
+              <span>Yazdır (A4)</span>
+            </button>
+            <a href="#formul-ozeti" id="link-formul" class="btn-outline-accent">Formül Kartına Git</a>
+            <a href="#kendini-dene" id="link-quiz" class="btn-outline">Mini Vize (8 Soru)</a>
+          </div>
+        </div>
+
+        <div id="pdf-status-banner" class="status-banner" role="status"></div>
+
+        <div class="filter-bar">
+          <div class="filter-group" role="group" aria-label="Konu Filtresi">
+            <button type="button" class="filter-btn active" data-filter="all">Tüm Konular</button>
+            <button type="button" class="filter-btn" data-filter="olcu">01. Ölçü</button>
+            <button type="button" class="filter-btn" data-filter="vektorler">02. Vektörler</button>
+            <button type="button" class="filter-btn" data-filter="hiz-ivme">03. Hız &amp; Sürat</button>
+            <button type="button" class="filter-btn" data-filter="anlik-hiz">04. Anlık Hız</button>
+            <button type="button" class="filter-btn" data-filter="serbest-dusme">05. Serbest Düşme</button>
+          </div>
+          <div class="g-note mono">g = 10 m/s² (hassas sorularda 9,8 m/s²)</div>
+        </div>
+      </section>
+
+      <!-- BÖLÜM 01: ÖLÇÜ -->
+      <section id="olcu" class="card chapter-section" data-chapter="olcu">
+        <div class="chapter-header">
+          <p class="chapter-kicker">Bölüm 01 · Vize Sınav Konusu</p>
+          <h2 class="chapter-title">01. Ölçü, SI Birim Sistemi ve Temel Fizik Tanımları</h2>
+          <p class="chapter-subtitle">
+            Ölçme ilkeleri, KISAMUZ temel büyüklükleri, elektronik ön ekleri ve hocanın PDF’indeki temel tanımlar.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="subhead">Temel Tanımlar ve Kavramlar</h3>
+          <div class="grid-2">
+            <div class="subpanel">
+              <div class="def-head"><h4 class="def-title">Fizik (PDF Sayfa 1)</h4></div>
+              <p class="def-text">
+                Maddeyi, enerjiyi, uzay ve zaman kavramlarını; bunlar arasındaki temel etkileşimleri sebep-sonuç ilişkisi çerçevesinde inceleyen doğa bilimidir. Alt dalları: Mekanik, Termodinamik, Optik, Elektromanyetizma, Atom Fiziği ve Nükleer Fiziktir.
+              </p>
+            </div>
+            <div class="subpanel">
+              <div class="def-head"><h4 class="def-title">Ölçme ve Ölçü</h4></div>
+              <p class="def-text">
+                Bilinmeyen bir fiziksel büyüklüğün, kendi cinsinden kabul edilmiş bir standart birimle karşılaştırılmasıdır. Doğrudan ölçme (cetvel, ampermetre) ve dolaylı ölçme (formülle özkütle veya hız hesabı) olarak ikiye ayrılır.
+              </p>
+            </div>
+            <div class="subpanel">
+              <div class="def-head"><h4 class="def-title">Skaler ve Vektörel Büyüklük</h4></div>
+              <p class="def-text">
+                Yalnızca sayı ve birimle ifade edilen büyüklükler skalerdir (kütle, zaman, sıcaklık, sürat, enerji). Sayı ve birimin yanında yön ve doğrultu gerektiren büyüklükler vektöreldir (kuvvet, hız, ivme, yer değiştirme, konum).
+              </p>
+            </div>
+            <div class="subpanel">
+              <div class="def-head">
+                <h4 class="def-title">Kuvvet (PDF Sayfa 1)</h4>
+                <span class="def-unit mono">Birim: Newton (N)</span>
+              </div>
+              <p class="def-text">
+                Kütlesi olan bir cismin hızını, yönünü veya şeklini değiştirebilen ya da duran bir cismi harekete geçirebilen vektörel etkidir. Dinamometre ile ölçülür.
+              </p>
+            </div>
+            <div class="subpanel">
+              <div class="def-head">
+                <h4 class="def-title">Özkütle / Yoğunluk (PDF Sayfa 2)</h4>
+                <span class="def-unit mono">Birim: g/cm³ veya kg/m³</span>
+              </div>
+              <p class="def-text">Bir maddenin birim hacmindeki kütle miktarıdır.</p>
+            </div>
+            <div class="subpanel">
+              <div class="def-head"><h4 class="def-title">Newton Yasaları (PDF Sayfa 3)</h4></div>
+              <p class="def-text">
+                1) Eylemsizlik: Dengelenmemiş net dış kuvvet yoksa cisim hareket durumunu korur. 2) Dinamik: Net kuvvet kütle ile ivmenin çarpımına eşittir (F = m·a). 3) Etki-Tepki: Her etkiye karşılık eşit büyüklükte ve zıt yönde tepki kuvveti vardır.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-12">
+          <div class="col-7 subpanel-white">
+            <h3 class="subhead" style="font-size:14px;margin-bottom:10px;">SI Temel Büyüklükler (KISAMUZ Kodlaması)</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Kod</th>
+                    <th>Büyüklük</th>
+                    <th>Sembol</th>
+                    <th>SI Birimi</th>
+                    <th>Ölçüm Aleti</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td class="mono" style="font-weight:700;color:#0369a1;">K</td><td>Kütle</td><td class="mono">m</td><td class="mono">Kilogram (kg)</td><td>Eşit kollu terazi</td></tr>
+                  <tr><td class="mono" style="font-weight:700;color:#0369a1;">I</td><td>Işık Şiddeti</td><td class="mono">I</td><td class="mono">Kandela (cd)</td><td>Fotometre</td></tr>
+                  <tr><td class="mono" style="font-weight:700;color:#0369a1;">S</td><td>Sıcaklık</td><td class="mono">T</td><td class="mono">Kelvin (K)</td><td>Termometre</td></tr>
+                  <tr><td class="mono" style="font-weight:700;color:#0369a1;">A</td><td>Akım Şiddeti</td><td class="mono">I</td><td class="mono">Amper (A)</td><td>Ampermetre</td></tr>
+                  <tr><td class="mono" style="font-weight:700;color:#0369a1;">M</td><td>Madde Miktarı</td><td class="mono">n</td><td class="mono">Mol (mol)</td><td>Hesaplama</td></tr>
+                  <tr><td class="mono" style="font-weight:700;color:#0369a1;">U</td><td>Uzunluk</td><td class="mono">l / x</td><td class="mono">Metre (m)</td><td>Şerit metre / Kumpas</td></tr>
+                  <tr><td class="mono" style="font-weight:700;color:#0369a1;">Z</td><td>Zaman</td><td class="mono">t</td><td class="mono">Saniye (s)</td><td>Kronometre</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="col-5 subpanel">
+            <h3 class="subhead" style="font-size:14px;margin-bottom:10px;">Elektronik Teknolojisi SI Ön Ekleri</h3>
+            <div class="prefix-row"><span><strong>Giga</strong> <span class="mono" style="color:#0369a1;">(G)</span></span><span class="mono">10⁹ · 1 GHz = 10⁹ Hz</span></div>
+            <div class="prefix-row"><span><strong>Mega</strong> <span class="mono" style="color:#0369a1;">(M)</span></span><span class="mono">10⁶ · 1 MΩ = 10⁶ Ω</span></div>
+            <div class="prefix-row"><span><strong>Kilo</strong> <span class="mono" style="color:#0369a1;">(k)</span></span><span class="mono">10³ · 1 km = 1000 m</span></div>
+            <div class="prefix-row"><span><strong>Santi</strong> <span class="mono" style="color:#0369a1;">(c)</span></span><span class="mono">10⁻² · 100 cm = 1 m</span></div>
+            <div class="prefix-row"><span><strong>Mili</strong> <span class="mono" style="color:#0369a1;">(m)</span></span><span class="mono">10⁻³ · 1 mA = 10⁻³ A</span></div>
+            <div class="prefix-row"><span><strong>Mikro</strong> <span class="mono" style="color:#0369a1;">(μ)</span></span><span class="mono">10⁻⁶ · 1 μF = 10⁻⁶ F</span></div>
+            <div class="prefix-row"><span><strong>Nano</strong> <span class="mono" style="color:#0369a1;">(n)</span></span><span class="mono">10⁻⁹ · 1 ns = 10⁻⁹ s</span></div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="subhead">Temel Formüller</h3>
+          <div class="grid-2">
+            <div class="subpanel-white">
+              <p class="formula-label">Hız Birim Dönüşümü</p>
+              <div class="math-box">1 m/s = 3,6 km/h &nbsp;⟺&nbsp; km/h ÷ 3,6 = m/s</div>
+              <p class="formula-desc">Sınavda hız km/h verilirse mutlaka 3,6’ya bölerek m/s’ye çevir.</p>
+            </div>
+            <div class="subpanel-white">
+              <p class="formula-label">Özkütle (Yoğunluk)</p>
+              <div class="math-box">d = <span class="frac"><span class="frac-num">m</span><span class="frac-den">V</span></span></div>
+              <p class="formula-desc">m: kütle (g veya kg), V: hacim (cm³ veya m³).</p>
+            </div>
+            <div class="subpanel-white">
+              <p class="formula-label">Newton’un 2. Yasası (Dinamik)</p>
+              <div class="math-box"><span class="vec">F</span><sub>net</sub> = m · <span class="vec">a</span></div>
+              <p class="formula-desc">İvme net kuvvetle doğru, kütleyle ters orantılıdır ve kuvvetle aynı yöndedir.</p>
+            </div>
+            <div class="subpanel-white">
+              <p class="formula-label">Ağırlık Kuvveti</p>
+              <div class="math-box">G = m · g</div>
+              <p class="formula-desc">m kütleli cisme etki eden yer çekimi kuvvetidir (g = 10 m/s²).</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="subhead">Hocanın PDF, Tablet ve Tahta Örnekleri (Adım Adım Çözüm)</h3>
+          <div class="examples-stack">
+            <article class="example-card">
+              <div class="example-source">Birim Dönüşümü &amp; Temel Uygulama</div>
+              <h4 class="example-title">Hız, Zaman ve Elektronik Ön Ek Dönüşümleri</h4>
+              <p class="example-question">
+                a) Saatte 72 km hızla giden bir aracın hızı kaç m/s’dir? b) 10 dakika kaç saniyedir? c) Elektronik devrede ölçülen 450 mA akım kaç Amper (A) ve kaç mikroamper (μA) eder?
+              </p>
+              <div class="steps-list">
+                <div class="step-box">
+                  <p class="step-title">a) km/h → m/s dönüşümü</p>
+                  <div class="math-line">v = <span class="frac"><span class="frac-num">72</span><span class="frac-den">3,6</span></span> = 20 m/s</div>
+                  <p class="step-detail">72 km = 72.000 m, 1 saat = 3600 s olduğundan 72.000 / 3600 = 20 m/s bulunur.</p>
+                </div>
+                <div class="step-box">
+                  <p class="step-title">b) Dakika → Saniye dönüşümü</p>
+                  <div class="math-line">t = 10 × 60 = 600 s</div>
+                  <p class="step-detail">SI zaman birimi saniyedir. Nehir ve hareket sorularında dakika verilirse saniyeye çevirmeye dikkat et.</p>
+                </div>
+                <div class="step-box">
+                  <p class="step-title">c) Amper ön ekleri (mili ↔ mikro)</p>
+                  <div class="math-line">450 mA = 450 × 10<sup>−3</sup> A = 0,45 A = 450.000 μA</div>
+                  <p class="step-detail">1 mA = 10⁻³ A ve 1 A = 10⁶ μA olduğu için mili’den mikro’ya geçerken 10³ ile çarpılır.</p>
+                </div>
+                <div class="result-box mono">Sonuç: a) 20 m/s  |  b) 600 s  |  c) 0,45 A ve 450.000 μA</div>
+                <div class="tip-box">
+                  <strong>Sınav İpucu:</strong>
+                  <span>SI dışı birim gördüğünde (km/h, dakika, cm, gram) işlem yapmadan önce mutlaka SI birimine (m, s, kg) çevir.</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="takeaways">
+          <h3 class="subhead" style="font-size:14px;">Bölüm 01 — Sınav Kontrol Noktaları</h3>
+          <ul>
+            <li>Temel büyüklükleri KISAMUZ akrostişiyle hatırla; skalerdirler ve tek bir ölçüm aletiyle ölçülürler.</li>
+            <li>Kuvvet, hız, ivme ve yer değiştirme vektörel; kütle, zaman, özkütle ve sürat skalerdir.</li>
+            <li>Ölçüm hataları sistematik (alet/kalibrasyon) ve rastgele (okuma/ortam) hatalar olarak ikiye ayrılır.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- BÖLÜM 02: VEKTÖRLER -->
+      <section id="vektorler" class="card chapter-section" data-chapter="vektorler">
+        <div class="chapter-header">
+          <p class="chapter-kicker">Bölüm 02 · Vize Sınav Konusu</p>
+          <h2 class="chapter-title">02. Vektörler, Bileşenlere Ayırma ve Birim Vektörler</h2>
+          <p class="chapter-subtitle">
+            Uç uca ekleme, kosinüs teoremi, geometrik çıkarma, birim vektör işlemleri ve 37°-53° bileşen soruları.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="subhead">Temel Tanımlar ve Kavramlar</h3>
+          <div class="grid-2">
+            <div class="subpanel">
+              <div class="def-head"><h4 class="def-title">Vektör (Tablet Notu)</h4></div>
+              <p class="def-text">Yönü, doğrultusu, büyüklüğü (şiddeti) ve başlangıç noktası olan fiziksel büyüklüklerdir. Üzerine ok (→) konularak gösterilir.</p>
+            </div>
+            <div class="subpanel">
+              <div class="def-head"><h4 class="def-title">Uç Uca Ekleme &amp; Değişme Özelliği</h4></div>
+              <p class="def-text">Verilen tüm vektörler yön ve büyüklüğü bozulmadan birinin bitişine diğerinin başlangıcı gelecek şekilde uç uca eklenir. İlk başlangıçtan son bitişe çizilen vektör bileşke (toplam) vektördür: a + b = b + a = c.</p>
+            </div>
+            <div class="subpanel">
+              <div class="def-head"><h4 class="def-title">Geometrik Çıkarma (Tablet Notu)</h4></div>
+              <p class="def-text">Vektörlerde çıkarma işlemi, çıkarılan vektörün tersinin (negatifinin, yani 180° zıt yönlüsünün) alınıp toplanmasıdır: a − b = a + (−b).</p>
+            </div>
+            <div class="subpanel">
+              <div class="def-head"><h4 class="def-title">Birim Vektörler (i, j, k)</h4></div>
+              <p class="def-text">x, y ve z eksenleri doğrultusunda büyüklüğü 1 birim olan yön göstericileridir. Birim vektörlerle toplama/çıkarma yapılırken yalnızca aynı eksen katsayıları (i ile i, j ile j, k ile k) toplanıp çıkarılır.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="subpanel-white">
+          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-bottom:10px;">
+            <h3 class="subhead" style="font-size:14px;margin:0;">Vektör Bileşenleri İçin Trigonometri Tablosu (PDF Sayfa 2)</h3>
+            <span class="mono" style="font-size:12px;color:#64748b;">sin = karşı/hipotenüs · cos = komşu/hipotenüs</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Açı (θ)</th><th>sin θ</th><th>cos θ</th><th>tan θ</th></tr>
+              </thead>
+              <tbody class="mono">
+                <tr><td style="font-weight:700;color:#0369a1;">30°</td><td>0,5 (1/2)</td><td>0,866 (√3/2 ≈ 0,7*)</td><td>1/√3</td></tr>
+                <tr><td style="font-weight:700;color:#0369a1;">37°</td><td>0,6 (3/5)</td><td>0,8 (4/5)</td><td>0,75 (3/4)</td></tr>
+                <tr><td style="font-weight:700;color:#0369a1;">45°</td><td>0,707 (√2/2)</td><td>0,707 (√2/2)</td><td>1</td></tr>
+                <tr><td style="font-weight:700;color:#0369a1;">53°</td><td>0,8 (4/5)</td><td>0,6 (3/5)</td><td>1,33 (4/3)</td></tr>
+                <tr><td style="font-weight:700;color:#0369a1;">60°</td><td>0,866 (√3/2)</td><td>0,5 (1/2)</td><td>√3</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:12px;color:#64748b;margin-top:8px;">*PDF Sayfa 7’deki eğik atış çözümünde hoca cos 30° değerini yaklaşık 0,7 olarak kullanmıştır.</p>
+        </div>
+
+        <div>
+          <h3 class="subhead">Temel Formüller</h3>
+          <div class="grid-2">
+            <div class="subpanel-white">
+              <p class="formula-label">Kosinüs Teoremi (Toplama / Çıkarma)</p>
+              <div class="math-box">c = √<span class="sqrt">a² + b² ± 2ab·cosθ</span></div>
+              <p class="formula-desc">Vektörlerin başlangıçları birleştirildiğinde aradaki açı θ ise toplama için (+), çıkarma için (−) kullanılır.</p>
+            </div>
+            <div class="subpanel-white">
+              <p class="formula-label">Dik Bileşenlere Ayırma</p>
+              <div class="math-box">F<sub>x</sub> = F·cosθ, &nbsp;&nbsp; F<sub>y</sub> = F·sinθ</div>
+              <p class="formula-desc">Açıya komşu eksen cosθ, açının karşısındaki eksen sinθ ile çarpılır (PDF Sayfa 2 trigonometri kutusu).</p>
+            </div>
+            <div class="subpanel-white">
+              <p class="formula-label">Bileşke Büyüklüğü (Pisagor)</p>
+              <div class="math-box">F<sub>b</sub> = √<span class="sqrt">F<sub>x,top</sub>² + F<sub>y,top</sub>²</span></div>
+              <p class="formula-desc">Tüm x bileşenleri ve tüm y bileşenleri ayrı ayrı toplandıktan sonra Pisagor bağıntısı uygulanır.</p>
+            </div>
+            <div class="subpanel-white">
+              <p class="formula-label">Birim Vektör Büyüklüğü</p>
+              <div class="math-box"><span class="vec">F</span> = F<sub>x</sub>î + F<sub>y</sub>ĵ + F<sub>z</sub>k̂ &nbsp;⇒&nbsp; |<span class="vec">F</span>| = √<span class="sqrt">F<sub>x</sub>² + F<sub>y</sub>² + F<sub>z</sub>²</span></div>
+              <p class="formula-desc">Üç boyutlu birim vektör gösterimi ve vektörün şiddeti.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="subhead">Hocanın PDF, Tablet ve Tahta Örnekleri (Adım Adım Çözüm)</h3>
+          <div class="examples-stack">
+            <!-- Örnek 2.1 -->
+            <article class="example-card">
+              <div class="example-source">PDF Sayfa 4 — Hocanın Örneği</div>
+              <h4 class="example-title">Birim Vektörler ile Toplama ve Çıkarma</h4>
+              <p class="example-question">
+                Birim vektörler cinsinden sayısal değerleri verilen F₁ = 5i + 3j + 2k, F₂ = i + k ve F₃ = −2j + 3k vektörleri için F₁ + F₂ = ? ve F₃ − F₂ = ? bulunuz.
+              </p>
+              <div class="steps-list">
+                <div class="step-box">
+                  <p class="step-title">1) F₁ + F₂ toplamı</p>
+                  <div class="math-line"><span class="vec">F</span>₁ + <span class="vec">F</span>₂ = (5î + 3ĵ + 2k̂) + (1î + 0ĵ + 1k̂) = 6î + 3ĵ + 3k̂</div>
+                  <p class="step-detail">Olmayan eksen katsayısı 0 kabul edilir: i’ler (5+1=6), j’ler (3+0=3), k’lar (2+1=3).</p>
+                </div>
+                <div class="step-box">
+                  <p class="step-title">2) F₃ − F₂ farkı (Matematiksel doğru çözüm)</p>
+                  <div class="math-line"><span class="vec">F</span>₃ − <span class="vec">F</span>₂ = (0î − 2ĵ + 3k̂) − (1î + 0ĵ + 1k̂) = −î − 2ĵ + 2k̂</div>
+                  <p class="step-detail">F₃ = −2j + 3k verildiği için i katsayısı 0 − 1 = −1, j katsayısı −2, k katsayısı 3 − 1 = +2 olur.</p>
+                </div>
+                <div class="result-box mono">Sonuç: F₁ + F₂ = 6i + 3j + 3k  |  F₃ − F₂ = −i − 2j + 2k</div>
+                <div class="tip-box">
+                  <strong>Sınav İpucu:</strong>
+                  <span>PDF Sayfa 4 el yazısında F₃ = −2j + 3k yazılmasına rağmen işlem satırında yanlışlıkla (−2i + 3k) − (i + k) = −3i + 2k yapılmış. Sınavda verilen harfi (i mi j mi) mutlaka iki kez kontrol et!</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Örnek 2.2 -->
+            <article class="example-card">
+              <div class="example-source">PDF Sayfa 5 — Hocanın Örneği</div>
+              <h4 class="example-title">Kuvvetlerin Dik Bileşenlere Ayrılması (37° - 53°)</h4>
+              <p class="example-question">
+                1. bölgede yatayla 37° açı yapan F₁ = 25 N, 2. bölgede yatayla 53° açı yapan F₂ = 20 N ve −y yönünde F₃ = 16 N kuvvetlerinin bileşkesi kaç N’dur? (sin53° = cos37° = 0,8; sin37° = cos53° = 0,6)
+              </p>
+              <div class="grid-12">
+                <div class="col-5">
+                  <svg viewBox="0 0 360 220" class="diagram-svg" role="img" aria-label="Kuvvetlerin dik bileşenlere ayrılması diyagramı">
+                    <defs>
+                      <marker id="arrow-blue-s" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#0284C7" /></marker>
+                      <marker id="arrow-red-s" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#DC2626" /></marker>
+                    </defs>
+                    <line x1="30" y1="120" x2="330" y2="120" stroke="#CBD5E1" stroke-width="1.5" />
+                    <line x1="180" y1="15" x2="180" y2="205" stroke="#CBD5E1" stroke-width="1.5" />
+                    <text x="322" y="114" font-size="11" fill="#64748B" font-family="IBM Plex Mono">+x</text>
+                    <text x="28" y="114" font-size="11" fill="#64748B" font-family="IBM Plex Mono">-x</text>
+                    <text x="186" y="24" font-size="11" fill="#64748B" font-family="IBM Plex Mono">+y</text>
+                    <text x="186" y="202" font-size="11" fill="#64748B" font-family="IBM Plex Mono">-y</text>
+                    <line x1="180" y1="120" x2="290" y2="48" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arrow-blue-s)" />
+                    <line x1="290" y1="48" x2="290" y2="120" stroke="#94A3B8" stroke-width="1" stroke-dasharray="4 3" />
+                    <line x1="290" y1="48" x2="180" y2="48" stroke="#94A3B8" stroke-width="1" stroke-dasharray="4 3" />
+                    <text x="235" y="42" font-size="11" font-weight="600" fill="#0284C7">F₁ = 25 N</text>
+                    <text x="218" y="113" font-size="10" fill="#334155">37°</text>
+                    <text x="242" y="134" font-size="10" fill="#475569" font-family="IBM Plex Mono">F₁x = 20 N</text>
+                    <line x1="180" y1="120" x2="108" y2="40" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arrow-blue-s)" />
+                    <line x1="108" y1="40" x2="108" y2="120" stroke="#94A3B8" stroke-width="1" stroke-dasharray="4 3" />
+                    <line x1="108" y1="40" x2="180" y2="40" stroke="#94A3B8" stroke-width="1" stroke-dasharray="4 3" />
+                    <text x="48" y="34" font-size="11" font-weight="600" fill="#0284C7">F₂ = 20 N</text>
+                    <text x="142" y="113" font-size="10" fill="#334155">53°</text>
+                    <text x="72" y="134" font-size="10" fill="#475569" font-family="IBM Plex Mono">F₂x = -12 N</text>
+                    <line x1="180" y1="120" x2="180" y2="188" stroke="#DC2626" stroke-width="2.5" marker-end="url(#arrow-red-s)" />
+                    <text x="190" y="182" font-size="11" font-weight="600" fill="#DC2626">F₃ = 16 N</text>
+                  </svg>
+                </div>
+                <div class="col-7 steps-list">
+                  <div class="step-box">
+                    <p class="step-title">1) F₁ kuvvetinin bileşenleri (+x, +y)</p>
+                    <div class="math-line">F<sub>1x</sub> = 25 · cos37° = 25 · 0,8 = +20 N<br />F<sub>1y</sub> = 25 · sin37° = 25 · 0,6 = +15 N</div>
+                    <p class="step-detail">1. bölgede hem x hem y bileşeni pozitiftir.</p>
+                  </div>
+                  <div class="step-box">
+                    <p class="step-title">2) F₂ kuvvetinin bileşenleri (−x, +y)</p>
+                    <div class="math-line">F<sub>2x</sub> = −20 · cos53° = −20 · 0,6 = −12 N<br />F<sub>2y</sub> = 20 · sin53° = 20 · 0,8 = +16 N</div>
+                    <p class="step-detail">F₂ sola baktığı için x bileşeni eksi (−12 N), yukarı baktığı için y bileşeni artı (+16 N) alınır.</p>
+                  </div>
+                  <div class="step-box">
+                    <p class="step-title">3) F₃ bileşeni ve eksen toplamları</p>
+                    <div class="math-line">F<sub>x,top</sub> = 20 − 12 + 0 = 8 N<br />F<sub>y,top</sub> = 15 + 16 − 16 = 15 N</div>
+                    <p class="step-detail">F₃ tamamen −y yönünde olduğu için F₃x = 0, F₃y = −16 N’dur.</p>
+                  </div>
+                  <div class="step-box">
+                    <p class="step-title">4) Bileşke kuvvet (8-15-17 özel üçgeni)</p>
+                    <div class="math-line">F<sub>b</sub> = √<span class="sqrt">8² + 15²</span> = √<span class="sqrt">64 + 225</span> = √<span class="sqrt">289</span> = 17 N</div>
+                    <p class="step-detail">Özel dik üçgeni (8-15-17) tanırsan karekökü saniyeler içinde bulursun.</p>
+                  </div>
+                  <div class="result-box mono">Sonuç: F_bileşke = 17 N</div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Örnek 2.3 -->
+            <article class="example-card">
+              <div class="example-source">Tablet Notu — Kosinüs Teoremi Örneği</div>
+              <h4 class="example-title">Kuzey ve Kuzeybatı Yönünde Yürüyen Kişinin Yer Değiştirmesi</h4>
+              <p class="example-question">
+                Kuzeye doğru 20 km yürüyen bir kişi, bu hareketinden sonra kuzeyle 60° açı yapacak şekilde kuzeybatıya doğru 35 km daha yürürse ilk konum ile son konum arasındaki mesafe (yer değiştirme) kaç km olur?
+              </p>
+              <div class="steps-list">
+                <div class="step-box">
+                  <p class="step-title">1) Kosinüs teoremini kurma</p>
+                  <div class="math-line">x = √<span class="sqrt">20² + 35² + 2 · 20 · 35 · cos60°</span></div>
+                  <p class="step-detail">İlk vektör kuzeye, ikinci vektör kuzeyle 60° açı yapacak şekilde devam ettiğinden aralarındaki açı 60° (cos 60° = 0,5) alınır.</p>
+                </div>
+                <div class="step-box">
+                  <p class="step-title">2) Kareleri ve çarpımı doğru hesaplama</p>
+                  <div class="math-line">x = √<span class="sqrt">400 + 1225 + 1400 · 0,5</span> = √<span class="sqrt">400 + 1225 + 700</span> = √<span class="sqrt">2325</span> ≈ 48,22 km</div>
+                  <p class="step-detail">Her terimin karesi tek tek alınır ve toplanır.</p>
+                </div>
+                <div class="result-box mono">Sonuç: x = √2325 ≈ 48,22 km</div>
+                <div class="tip-box">
+                  <strong>Sınav İpucu:</strong>
+                  <span>Tablet fotoğrafında 20² ve 35² yerine kare alma unutulup işlem yarım kalmış (55 + ...). Sınavda kareleri (400 ve 1225) mutlaka hesaplamayı unutma!</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Örnek 2.4 -->
+            <article class="example-card">
+              <div class="example-source">PDF Sayfa 6 — Nehir Problemi</div>
+              <h4 class="example-title">Nehirde Karşıya Geçen Kayığın Bileşke Hızı ve Sürüklenmesi</h4>
+              <p class="example-question">
+                Akıntı hızı V_nehir = 3 m/s olan nehirde, suya göre karşı kıyıya dik V_kayık = 4 m/s hızla giren kayık 10 saniyede karşı kıyıya ulaşıyorsa: a) Bileşke hız b) Nehrin genişliği c) Sürüklenme miktarı nedir?
+              </p>
+              <div class="grid-12">
+                <div class="col-5">
+                  <svg viewBox="0 0 320 170" class="diagram-svg" role="img" aria-label="Nehirde karşıya geçen kayık 3-4-5 hız üçgeni">
+                    <defs><marker id="rv-arrow-s" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#0284C7" /></marker></defs>
+                    <rect x="20" y="34" width="280" height="102" fill="#F0F9FF" />
+                    <line x1="20" y1="34" x2="300" y2="34" stroke="#334155" stroke-width="2" />
+                    <line x1="20" y1="136" x2="300" y2="136" stroke="#334155" stroke-width="2" />
+                    <circle cx="95" cy="126" r="6" fill="#0F172A" />
+                    <line x1="95" y1="120" x2="95" y2="55" stroke="#0284C7" stroke-width="2" marker-end="url(#rv-arrow-s)" />
+                    <text x="32" y="88" font-size="10" font-weight="600" fill="#0284C7" font-family="IBM Plex Mono">Vk = 4 m/s</text>
+                    <line x1="101" y1="126" x2="175" y2="126" stroke="#475569" stroke-width="2" marker-end="url(#rv-arrow-s)" />
+                    <text x="122" y="118" font-size="10" font-weight="600" fill="#475569" font-family="IBM Plex Mono">Vn = 3 m/s</text>
+                    <line x1="95" y1="126" x2="170" y2="40" stroke="#DC2626" stroke-width="2.2" stroke-dasharray="4 3" marker-end="url(#rv-arrow-s)" />
+                    <text x="160" y="72" font-size="10" font-weight="600" fill="#DC2626" font-family="IBM Plex Mono">Vb = 5 m/s</text>
+                    <text x="296" y="26" text-anchor="end" font-size="10" fill="#334155" font-family="IBM Plex Mono">Sürüklenme = 30 m</text>
+                  </svg>
+                </div>
+                <div class="col-7 steps-list">
+                  <div class="step-box">
+                    <p class="step-title">a) Bileşke hız (3-4-5 üçgeni)</p>
+                    <div class="math-line">V<sub>b</sub> = √<span class="sqrt">V<sub>k</sub>² + V<sub>n</sub>²</span> = √<span class="sqrt">4² + 3²</span> = √<span class="sqrt">25</span> = 5 m/s</div>
+                    <p class="step-detail">İki hız birbirine dik olduğundan Pisagor uygulanır.</p>
+                  </div>
+                  <div class="step-box">
+                    <p class="step-title">b) Nehrin genişliği (düşey yol)</p>
+                    <div class="math-line">d = V<sub>kayık</sub> · t = 4 · 10 = 40 m</div>
+                    <p class="step-detail">Karşı kıyıya geçişi yalnızca karşıya dik hız (V_kayık) belirler.</p>
+                  </div>
+                  <div class="step-box">
+                    <p class="step-title">c) Sürüklenme miktarı (yatay yol)</p>
+                    <div class="math-line">x<sub>yatay</sub> = V<sub>nehir</sub> · t = 3 · 10 = 30 m</div>
+                    <p class="step-detail">Akıntı boyunca sürüklenmeyi yalnızca nehir hızı belirler.</p>
+                  </div>
+                  <div class="result-box mono">Sonuç: Vb = 5 m/s  |  Genişlik = 40 m  |  Sürüklenme = 30 m</div>
+                  <div class="tip-box">
+                    <strong>Sınav İpucu:</strong>
+                    <span>PDF Sayfa 6’da soruda "10 dakika" yazılmış ama çözümde doğrudan 10 saniye gibi çarpılmış (4·10=40). Sınavda hoca dakika verirse 10 dk = 600 s çevirip d = 2400 m, x = 1800 m alman gerekip gerekmediğini kontrol et.</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Etkileşimli Vektör Laboratuvarı -->
+        <div class="lab-box no-print">
+          <div class="lab-head">
+            <div>
+              <p class="chapter-kicker" style="margin-bottom:2px;">Etkileşimli Laboratuvar · Vektör Bileşkesi</p>
+              <h4 style="font-size:16px;font-weight:600;">İki Kuvvetin Dik Bileşenleri ve Bileşke Vektör Hesaplayıcı</h4>
+            </div>
+            <button type="button" id="vec-reset" class="btn-outline">PDF Örneğine Sıfırla</button>
+          </div>
+          <div class="grid-12" style="align-items:center;">
+            <div class="col-6">
+              <svg viewBox="0 0 320 260" class="lab-svg" role="img" aria-label="Etkileşimli vektör koordinat düzlemi">
+                <defs>
+                  <marker id="lab-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#0284C7" /></marker>
+                  <marker id="lab-s" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#475569" /></marker>
+                  <marker id="lab-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#DC2626" /></marker>
+                </defs>
+                <line x1="20" y1="140" x2="300" y2="140" stroke="#CBD5E1" stroke-width="1.5" />
+                <line x1="160" y1="15" x2="160" y2="245" stroke="#CBD5E1" stroke-width="1.5" />
+                <line id="svg-vec-f1" x1="160" y1="140" x2="204" y2="107" stroke="#0284C7" stroke-width="2.5" marker-end="url(#lab-b)" />
+                <line id="svg-vec-f2" x1="160" y1="140" x2="133" y2="105" stroke="#475569" stroke-width="2.5" marker-end="url(#lab-s)" />
+                <line id="svg-vec-fb" x1="160" y1="140" x2="177" y2="72" stroke="#DC2626" stroke-width="2.5" stroke-dasharray="4 2" marker-end="url(#lab-r)" />
+                <text x="275" y="134" font-size="10" fill="#64748B" font-family="IBM Plex Mono">+x</text>
+                <text x="166" y="24" font-size="10" fill="#64748B" font-family="IBM Plex Mono">+y</text>
+                <text id="svg-lbl-f1" x="208" y="103" font-size="10" font-weight="600" fill="#0284C7">F₁</text>
+                <text id="svg-lbl-f2" x="122" y="101" font-size="10" font-weight="600" fill="#475569">F₂</text>
+                <text id="svg-lbl-fb" x="182" y="66" font-size="10" font-weight="700" fill="#DC2626">Fb</text>
+              </svg>
+            </div>
+            <div class="col-6" style="display:flex;flex-direction:column;gap:14px;">
+              <div class="grid-2">
+                <div>
+                  <label class="slider-label" for="vec-f1"><span>F₁ Büyüklüğü</span><span id="vec-f1-val" class="mono" style="color:#0369a1;">25 N</span></label>
+                  <input id="vec-f1" type="range" min="5" max="40" step="1" value="25" />
+                </div>
+                <div>
+                  <label class="slider-label" for="vec-a1"><span>F₁ Açısı (θ₁)</span><span id="vec-a1-val" class="mono" style="color:#0369a1;">37°</span></label>
+                  <input id="vec-a1" type="range" min="0" max="180" step="1" value="37" />
+                </div>
+                <div>
+                  <label class="slider-label" for="vec-f2"><span>F₂ Büyüklüğü</span><span id="vec-f2-val" class="mono">20 N</span></label>
+                  <input id="vec-f2" type="range" min="5" max="40" step="1" value="20" />
+                </div>
+                <div>
+                  <label class="slider-label" for="vec-a2"><span>F₂ Açısı (θ₂)</span><span id="vec-a2-val" class="mono">127°</span></label>
+                  <input id="vec-a2" type="range" min="0" max="180" step="1" value="127" />
+                </div>
+              </div>
+              <div class="metrics-3">
+                <div><div class="metric-lbl">ΣFx (Yatay)</div><div id="vec-sum-x" data-testid="vec-sum-x" class="metric-val mono">7.9 N</div></div>
+                <div><div class="metric-lbl">ΣFy (Düşey)</div><div id="vec-sum-y" data-testid="vec-sum-y" class="metric-val mono">31.0 N</div></div>
+                <div><div class="metric-lbl" style="color:#b91c1c;font-weight:600;">Bileşke |Fb|</div><div id="vec-resultant" data-testid="vec-resultant" class="metric-val mono" style="color:#b91c1c;font-weight:700;">32.0 N</div></div>
+              </div>
+              <p id="vec-trig-readout" class="mono" style="font-size:12px;color:#475569;">cos(37°) = 0.80 · sin(37°) = 0.60</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="takeaways">
+          <h3 class="subhead" style="font-size:14px;">Bölüm 02 — Sınav Kontrol Noktaları</h3>
+          <ul>
+            <li>2. ve 3. bölgedeki bileşenlerin (−) işaretlerini koymayı unutma.</li>
+            <li>3-4-5, 6-8-10, 5-12-13 ve 8-15-17 özel dik üçgenleri sınavda çok hız kazandırır.</li>
+            <li>Birim vektör çıkarırken eksi işaretini parantez içindeki tüm terimlere dağıt.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- BÖLÜM 03: ORTALAMA HIZ, SÜRAT VE İVME -->
+      <section id="hiz-ivme" class="card chapter-section" data-chapter="hiz-ivme">
+        <div class="chapter-header">
+          <p class="chapter-kicker">Bölüm 03 · Vize Sınav Konusu</p>
+          <h2 class="chapter-title">03. Ortalama Hız, Ortalama Sürat, Ortalama İvme ve Sabit İvmeli Hareket</h2>
+          <p class="chapter-subtitle">
+            Konum ve yer değiştirme farkı, sayı doğrusu soruları ve beyaz tahtadaki 5 temel kinematik denklem.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="subhead">Temel Tanımlar ve Kavramlar</h3>
+          <div class="grid-2">
+            <div class="subpanel">
+              <div class="def-head"><h4 class="def-title">Konum Vektörü (Tablet Notu)</h4></div>
+              <p class="def-text">Cismin bulunduğu koordinat sisteminde seçilen referans (başlangıç) noktasına göre yerini belirten vektördür (x).</p>
+            </div>
+            <div class="subpanel">
+              <div class="def-head"><h4 class="def-title">Yer Değiştirme (Δx) vs. Alınan Yol</h4></div>
+              <p class="def-text">Yer değiştirme ilk konum ile son konum arasındaki en kısa yönlü farktır (Δx = x₂ − x₁, vektörel ve eksi olabilir). Alınan yol ise cismin izlediği tüm yörüngenin uzunluğudur (skaler ve daima pozitiftir).</p>
+            </div>
+            <div class="subpanel">
+              <div class="def-head">
+                <h4 class="def-title">Ortalama Hız vs. Ortalama Sürat</h4>
+                <span class="def-unit mono">Birim: m/s</span>
+              </div>
+              <p class="def-text">Ortalama hız yer değiştirmenin zamana bölümüdür (vektörel, yön belirtir). Ortalama sürat ise toplam alınan yolun zamana bölümüdür (skalerdir).</p>
+            </div>
+            <div class="subpanel">
+              <div class="def-head">
+                <h4 class="def-title">Ortalama İvme (Tahta &amp; PDF Sayfa 1)</h4>
+                <span class="def-unit mono">Birim: m/s²</span>
+              </div>
+              <p class="def-text">Bir cismin hızının (büyüklüğünün veya yönünün) birim zamandaki değişim oranıdır.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="subhead">Temel Formüller</h3>
+          <div class="grid-2">
+            <div class="subpanel-white">
+              <p class="formula-label">Ortalama Hız (Vektörel)</p>
+              <div class="math-box">V<sub>ort</sub> = <span class="frac"><span class="frac-num">Δx</span><span class="frac-den">Δt</span></span> = <span class="frac"><span class="frac-num">x₂ − x₁</span><span class="frac-den">t₂ − t₁</span></span></div>
+              <p class="formula-desc">Son konumdan ilk konum çıkarılır; yön sola/geriye ise sonuç negatif çıkar.</p>
+            </div>
+            <div class="subpanel-white">
+              <p class="formula-label">Ortalama Sürat (Skaler)</p>
+              <div class="math-box">Ortalama Sürat = <span class="frac"><span class="frac-num">Alınan Toplam Yol</span><span class="frac-den">Toplam Süre</span></span></div>
+              <p class="formula-desc">Gidiş ve dönüş mesafelerinin mutlak değerleri toplanır.</p>
+            </div>
+            <div class="subpanel-white">
+              <p class="formula-label">Ortalama İvme</p>
+              <div class="math-box">a<sub>ort</sub> = <span class="frac"><span class="frac-num">V<sub>s</sub> − V₀</span><span class="frac-den">t₂ − t₁</span></span></div>
+              <p class="formula-desc">Son hızdan ilk hız çıkarılıp geçen zamana bölünür.</p>
+            </div>
+            <div class="subpanel-white">
+              <p class="formula-label">Tahtadaki 5 Temel Sabit İvmeli Hareket Denklemi</p>
+              <div class="math-box" style="font-size:14px;">
+                1) V<sub>s</sub> = V₀ + a·t &nbsp;&nbsp;|&nbsp;&nbsp; 2) x<sub>s</sub> − x₀ = V₀·t + ½·a·t²<br />
+                3) V<sub>s</sub>² = V₀² + 2a(x<sub>s</sub> − x₀) &nbsp;&nbsp;|&nbsp;&nbsp; 4) x<sub>s</sub> − x₀ = ½(V₀ + V<sub>s</sub>)·t
+              </div>
+              <p class="formula-desc">Beyaz tahta fotoğrafında hocanın yıldızladığı denklemler. Zaman yoksa 3. denklemi (zamansız hız) seç!</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="subhead">Hocanın PDF, Tablet ve Tahta Örnekleri (Adım Adım Çözüm)</h3>
+          <div class="examples-stack">
+            <article class="example-card">
+              <div class="example-source">Tablet Notu — Sayı Doğrusu Örneği</div>
+              <h4 class="example-title">Gidip Geri Dönen Arabanın Ortalama Hızı ve Ortalama Sürati</h4>
+              <p class="example-question">
+                Bir araba 1. noktadan (x₁ = 30 m) harekete başlayıp önce sağdaki 2. noktaya (x₂ = 52 m, yani +22 m) gidiyor, ardından geri dönüp 0 ve 3 noktasından geçerek 4. noktaya (x₄ = −53 m) toplam 50 saniyede ulaşıyor. a) Ortalama hız b) Ortalama sürat nedir?
+              </p>
+              <div class="grid-12">
+                <div class="col-5">
+                  <svg viewBox="0 0 400 130" class="diagram-svg" role="img" aria-label="Sayı doğrusu üzerinde hareket: +30m'den +52m'ye, oradan -53m'ye gidiş">
+                    <defs>
+                      <marker id="nl-arrow-s" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#0284C7" /></marker>
+                      <marker id="nl-arrow-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#D97706" /></marker>
+                    </defs>
+                    <line x1="30" y1="78" x2="370" y2="78" stroke="#334155" stroke-width="2" />
+                    <line x1="65" y1="72" x2="65" y2="84" stroke="#0F172A" stroke-width="2" /><text x="65" y="64" text-anchor="middle" font-size="10" font-weight="600" font-family="IBM Plex Mono">-53 m</text><text x="65" y="102" text-anchor="middle" font-size="10" fill="#64748B">4. Nokta</text>
+                    <line x1="138" y1="72" x2="138" y2="84" stroke="#0F172A" stroke-width="2" /><text x="138" y="102" text-anchor="middle" font-size="10" fill="#64748B">3</text>
+                    <line x1="210" y1="72" x2="210" y2="84" stroke="#0F172A" stroke-width="2" /><text x="210" y="64" text-anchor="middle" font-size="10" font-weight="600" font-family="IBM Plex Mono">0</text><text x="210" y="102" text-anchor="middle" font-size="10" fill="#64748B">Referans</text>
+                    <line x1="280" y1="72" x2="280" y2="84" stroke="#0F172A" stroke-width="2" /><text x="280" y="64" text-anchor="middle" font-size="10" font-weight="600" font-family="IBM Plex Mono">+30 m</text><text x="280" y="102" text-anchor="middle" font-size="10" fill="#64748B">1. Nokta</text>
+                    <line x1="340" y1="72" x2="340" y2="84" stroke="#0F172A" stroke-width="2" /><text x="340" y="64" text-anchor="middle" font-size="10" font-weight="600" font-family="IBM Plex Mono">+52 m</text><text x="340" y="102" text-anchor="middle" font-size="10" fill="#64748B">2. Nokta</text>
+                    <path d="M 280 46 Q 310 26 338 46" fill="none" stroke="#0284C7" stroke-width="2" marker-end="url(#nl-arrow-s)" />
+                    <text x="310" y="25" text-anchor="middle" font-size="10" font-weight="600" fill="#0284C7" font-family="IBM Plex Mono">+22 m</text>
+                    <path d="M 338 50 Q 200 10 68 50" fill="none" stroke="#D97706" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#nl-arrow-a)" />
+                    <text x="200" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#B45309" font-family="IBM Plex Mono">Geri dönüş: 52 + 53 = 105 m</text>
+                  </svg>
+                </div>
+                <div class="col-7 steps-list">
+                  <div class="step-box">
+                    <p class="step-title">a) Ortalama Hız (yalnızca ilk ve son konum)</p>
+                    <div class="math-line">V<sub>ort</sub> = <span class="frac"><span class="frac-num">−53 − 30</span><span class="frac-den">50</span></span> = <span class="frac"><span class="frac-num">−83</span><span class="frac-den">50</span></span> = −1,66 m/s</div>
+                    <p class="step-detail">Başlangıç x₁ = +30 m, bitiş x₄ = −53 m olduğu için yer değiştirme −83 m’dir. Eksi işareti net hareketin −x yönünde olduğunu gösterir.</p>
+                  </div>
+                  <div class="step-box">
+                    <p class="step-title">b) Ortalama Sürat (alınan tüm yolların toplamı)</p>
+                    <div class="math-line">Toplam Yol = |52 − 30| + |52 − 0| + |0 − (−53)| = 22 + 52 + 53 = 127 m</div>
+                    <div class="math-line">Sürat = <span class="frac"><span class="frac-num">127</span><span class="frac-den">50</span></span> = 2,54 m/s</div>
+                    <p class="step-detail">1→2 arası 22 m ileri, 2→0 arası 52 m geri, 0→4 arası 53 m daha geri gittiği için toplam alınan yol 127 m’dir.</p>
+                  </div>
+                  <div class="result-box mono">Sonuç: Ortalama Hız = −1,66 m/s  |  Ortalama Sürat = 2,54 m/s</div>
+                  <div class="tip-box">
+                    <strong>Sınav İpucu:</strong>
+                    <span>Tablet notunda −53 − 30 işlemi −85 yazılıp −1,66 olarak doğruya yakın verilmiş; doğrusu −83 / 50 = −1,66 m/s’dir.</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="example-card">
+              <div class="example-source">Beyaz Tahta &amp; Tablet — Sabit İvmeli Hareket</div>
+              <h4 class="example-title">10 Saniyede Hızlanan Cismin İvmesi ve Aldığı Yollar</h4>
+              <p class="example-question">
+                x ekseni boyunca hareket eden bir cisim 10 saniye içinde hızını 10 m/s’den 30 m/s’ye çıkarırsa: a) Ortalama ivmesi nedir? b) Sürenin yarısında (t = 5 s) ne kadar yol alır? c) Sürenin tamamında (t = 10 s) ne kadar yol alır?
+              </p>
+              <div class="steps-list">
+                <div class="step-box">
+                  <p class="step-title">a) Ortalama İvme</p>
+                  <div class="math-line">a<sub>ort</sub> = <span class="frac"><span class="frac-num">30 − 10</span><span class="frac-den">10</span></span> = <span class="frac"><span class="frac-num">20</span><span class="frac-den">10</span></span> = 2 m/s²</div>
+                  <p class="step-detail">Hız 10 saniyede 20 m/s arttığı için ivme saniyede 2 m/s²’dir.</p>
+                </div>
+                <div class="step-box">
+                  <p class="step-title">b) Sürenin yarısında (t = 5 s) alınan yol</p>
+                  <div class="math-line">x<sub>s</sub> = V₀·t + ½·a·t² = 10·5 + ½·2·5² = 50 + 25 = 75 m</div>
+                  <p class="step-detail">Tahtadaki sağ alt çözümle birebir aynıdır: x_s = 75 m.</p>
+                </div>
+                <div class="step-box">
+                  <p class="step-title">c) Sürenin tamamında (t = 10 s) alınan yol</p>
+                  <div class="math-line">x<sub>s</sub> = 10·10 + ½·2·10² = 100 + 100 = 200 m</div>
+                  <p class="step-detail">Kısa yol kontrolü: V_ort · t = ½(10 + 30) · 10 = 20 · 10 = 200 m!</p>
+                </div>
+                <div class="result-box mono">Sonuç: a) 2 m/s²  |  b) 75 m  |  c) 200 m</div>
+                <div class="tip-box">
+                  <strong>Sınav İpucu:</strong>
+                  <span>Tablet notunun c şıkkında harf hatasıyla Vs = 200 yazılmış ama doğrusu tahtadaki gibi x_s = 200 m’dir.</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="takeaways">
+          <h3 class="subhead" style="font-size:14px;">Bölüm 03 — Sınav Kontrol Noktaları</h3>
+          <ul>
+            <li>Ortalama hızda sadece ilk ve son noktaya bakılır; süratte aracın geri döndüğü tüm mesafeler toplanır.</li>
+            <li>Zaman verilmemişse zamansız hız denklemi Vs² = V0² + 2aΔx hayat kurtarır.</li>
+            <li>Sağlamasını yapmak için Δx = ½(V0 + Vs)·t formülünü mutlaka kullan.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- BÖLÜM 04: ANLIK HIZ -->
+      <section id="anlik-hiz" class="card chapter-section" data-chapter="anlik-hiz">
+        <div class="chapter-header">
+          <p class="chapter-kicker">Bölüm 04 · Vize Sınav Konusu</p>
+          <h2 class="chapter-title">04. Anlık Hız ve Konum Denkleminin Zamana Göre Türevi</h2>
+          <p class="chapter-subtitle">
+            Limit tanımı, polinom türev kuralı ve hocanın tahtada çözdüğü x(t) = −4t + 2t² sorusu.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="subhead">Temel Tanımlar ve Kavramlar</h3>
+          <div class="grid-2">
+            <div class="subpanel">
+              <div class="def-head">
+                <h4 class="def-title">Anlık Hız (Tahta &amp; Tablet)</h4>
+                <span class="def-unit mono">Birim: m/s</span>
+              </div>
+              <p class="def-text">Zaman aralığı Δt sıfıra yaklaşırken ortalama hızın limit değeridir. Yani cismin konum denkleminin x(t) zamana göre 1. dereceden türevidir.</p>
+            </div>
+            <div class="subpanel">
+              <div class="def-head"><h4 class="def-title">Polinom Türev Alma Kuralı</h4></div>
+              <p class="def-text">Her terimde üs başa çarpım olarak indirilir ve üs 1 azaltılır: (A·tⁿ)′ = A·n·tⁿ⁻¹. Birinci dereceden terimin (bt) türevi katsayısı (b), sabit sayının türevi ise 0’dır.</p>
+            </div>
+            <div class="subpanel">
+              <div class="def-head"><h4 class="def-title">Anlık İvme İlişkisi (Ekstra)</h4></div>
+              <p class="def-text">Hız denkleminin v(t) zamana göre bir kez daha türevi alınırsa anlık ivme a(t) = dv/dt bulunur.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="subhead">Temel Formüller</h3>
+          <div class="grid-2">
+            <div class="subpanel-white">
+              <p class="formula-label">Limit ve Türev Tanımı</p>
+              <div class="math-box">V<sub>anlık</sub> = lim<sub>Δt→0</sub> <span class="frac"><span class="frac-num">Δx</span><span class="frac-den">Δt</span></span> = <span class="frac"><span class="frac-num">dx</span><span class="frac-den">dt</span></span></div>
+              <p class="formula-desc">Tahtanın sol üst köşesinde hocanın yazdığı temel tanım.</p>
+            </div>
+            <div class="subpanel-white">
+              <p class="formula-label">Kuvvet Kuralı ile Hız Fonksiyonu</p>
+              <div class="math-box">x(t) = a·t² + b·t + c &nbsp;⇒&nbsp; v(t) = <span class="frac"><span class="frac-num">dx</span><span class="frac-den">dt</span></span> = 2a·t + b</div>
+              <p class="formula-desc">2·t² teriminin türevi 2·2·t¹ = 4t, −4t teriminin türevi −4 olur.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="subhead">Hocanın PDF, Tablet ve Tahta Örnekleri (Adım Adım Çözüm)</h3>
+          <div class="examples-stack">
+            <article class="example-card">
+              <div class="example-source">Beyaz Tahta &amp; Tablet — Birebir Sınav Tipi Soru</div>
+              <h4 class="example-title">Konum-Zaman Denklemi x(t) = −4t + 2t² Olan Cismin Hızı</h4>
+              <p class="example-question">
+                x ekseni boyunca hareket eden bir cismin konum-zaman denklemi x(t) = −4t + 2t² dir. 1) (0−1) ve (1−3) saniye aralıklarında cismin ortalama hızını bulunuz. 2) t = 2,5 saniyedeki anlık hızı nedir?
+              </p>
+              <div class="steps-list">
+                <div class="step-box">
+                  <p class="step-title">1a) (0 − 1) saniye aralığında ortalama hız</p>
+                  <div class="math-line">V<sub>ort(0−1)</sub> = <span class="frac"><span class="frac-num">x(1) − x(0)</span><span class="frac-den">1 − 0</span></span> = <span class="frac"><span class="frac-num">(−4·1 + 2·1²) − 0</span><span class="frac-den">1</span></span> = <span class="frac"><span class="frac-num">−4 + 2</span><span class="frac-den">1</span></span> = −2 m/s</div>
+                  <p class="step-detail">Önce x(1) = −2 m ve x(0) = 0 m konumları hesaplanıp zaman aralığına (1 s) bölünür.</p>
+                </div>
+                <div class="step-box">
+                  <p class="step-title">1b) (1 − 3) saniye aralığında ortalama hız</p>
+                  <div class="math-line">x(3) = −4(3) + 2(3)² = −12 + 18 = 6 m &nbsp;⇒&nbsp; V<sub>ort(1−3)</sub> = <span class="frac"><span class="frac-num">6 − (−2)</span><span class="frac-den">3 − 1</span></span> = <span class="frac"><span class="frac-num">8</span><span class="frac-den">2</span></span> = 4 m/s</div>
+                  <p class="step-detail">Tahtada 1. şıkta (1−3) aralığı da sorulmuş! Eksi ile eksinin çarpımının (+) olduğuna dikkat et: 6 − (−2) = 8.</p>
+                </div>
+                <div class="step-box">
+                  <p class="step-title">2) Türev alarak t = 2,5 s’deki anlık hızı bulma</p>
+                  <div class="math-line">v(t) = <span class="frac"><span class="frac-num">dx</span><span class="frac-den">dt</span></span> = −4·1·t⁰ + 2·2·t¹ = −4 + 4t</div>
+                  <div class="math-line">v(2,5) = −4 + 4 · 2,5 = −4 + 10 = 6 m/s</div>
+                  <p class="step-detail">t yerine 2,5 yazıldığında anlık hız 6 m/s çıkar.</p>
+                </div>
+                <div class="result-box mono">Sonuç: V_ort(0-1) = −2 m/s  |  V_ort(1-3) = 4 m/s  |  V(2,5 s) = 6 m/s</div>
+                <div class="tip-box">
+                  <strong>Sınav İpucu:</strong>
+                  <span>Sınavda hoca "aralık" (ör. 1–3 sn) sorarsa ortalama hız (x₂−x₁)/(t₂−t₁) yap; "tek bir saniye" (ör. 2,5 sn) sorarsa mutlaka türev al!</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Etkileşimli Türev Laboratuvarı -->
+        <div class="lab-box no-print">
+          <div class="lab-head">
+            <div>
+              <p class="chapter-kicker" style="margin-bottom:2px;">Etkileşimli Laboratuvar · Tahtadaki x(t) = −4t + 2t² Sorusu</p>
+              <h4 style="font-size:16px;font-weight:600;">Konum-Zaman Eğrisi ve Teğet Eğimiyle Anlık Hız</h4>
+            </div>
+            <button type="button" id="deriv-reset" class="btn-outline">t = 2,5 s Sınav Değerine Dön</button>
+          </div>
+          <div class="grid-12" style="align-items:center;">
+            <div class="col-6">
+              <svg viewBox="0 0 340 215" class="lab-svg" role="img" aria-label="x(t) = -4t + 2t kare parabolü ve anlık hız teğeti">
+                <line x1="35" y1="149" x2="315" y2="149" stroke="#CBD5E1" stroke-width="1.5" />
+                <line x1="40" y1="20" x2="40" y2="195" stroke="#CBD5E1" stroke-width="1.5" />
+                <text x="305" y="144" font-size="10" fill="#64748B" font-family="IBM Plex Mono">t (s)</text>
+                <text x="46" y="26" font-size="10" fill="#64748B" font-family="IBM Plex Mono">x (m)</text>
+                <polyline id="deriv-curve" fill="none" stroke="#0284C7" stroke-width="2.5" points="" />
+                <line id="deriv-tangent" x1="157" y1="163" x2="248" y2="97" stroke="#DC2626" stroke-width="2" stroke-dasharray="4 2" />
+                <circle id="deriv-dot" cx="202.5" cy="129.6" r="5" fill="#DC2626" />
+                <text x="40" y="204" text-anchor="middle" font-size="10" fill="#64748B" font-family="IBM Plex Mono">0s</text>
+                <text x="105" y="204" text-anchor="middle" font-size="10" fill="#64748B" font-family="IBM Plex Mono">1s</text>
+                <text x="170" y="204" text-anchor="middle" font-size="10" fill="#64748B" font-family="IBM Plex Mono">2s</text>
+                <text x="235" y="204" text-anchor="middle" font-size="10" fill="#64748B" font-family="IBM Plex Mono">3s</text>
+                <text x="300" y="204" text-anchor="middle" font-size="10" fill="#64748B" font-family="IBM Plex Mono">4s</text>
+              </svg>
+            </div>
+            <div class="col-6" style="display:flex;flex-direction:column;gap:14px;">
+              <div>
+                <label class="slider-label" for="deriv-t"><span>Zaman (t)</span><span id="deriv-t-val" class="mono" style="color:#0369a1;">2.5 s</span></label>
+                <input id="deriv-t" type="range" min="0" max="4" step="0.1" value="2.5" />
+              </div>
+              <div class="subpanel-white" style="display:flex;flex-direction:column;gap:8px;font-size:14px;">
+                <div style="display:flex;justify-content:space-between;">
+                  <span style="color:#475569;">Konum x(<span id="deriv-pos-t">2.5</span>):</span>
+                  <span id="deriv-pos" data-testid="deriv-pos" class="mono" style="font-weight:600;">2.50 m</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;">
+                  <span style="color:#475569;">Türev Formülü v(t) = dx/dt:</span>
+                  <span class="mono" style="font-weight:500;color:#0369a1;">−4 + 4t</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;padding-top:8px;border-top:1px solid var(--bg-subtle);">
+                  <span style="font-weight:600;color:#b91c1c;">Anlık Hız v(<span id="deriv-vel-t">2.5</span>):</span>
+                  <span id="deriv-vel" data-testid="deriv-vel" class="mono" style="font-weight:700;color:#b91c1c;">6.0 m/s</span>
+                </div>
+              </div>
+              <p style="font-size:12px;color:#475569;">t = 1,0 s anında v(1) = 0 m/s olur; bu nokta cismin yön değiştirdiği dip noktasıdır.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="takeaways">
+          <h3 class="subhead" style="font-size:14px;">Bölüm 04 — Sınav Kontrol Noktaları</h3>
+          <ul>
+            <li>Aralık sorulursa: Δx / Δt (Ortalama hız). Tek an sorulursa: dx / dt (Türev ile Anlık hız).</li>
+            <li>x(t) = −4t + 2t² denkleminde t=1 s anında v(1)=0 olur, yani cisim yön değiştirir.</li>
+            <li>Parantez işaretlerine özellikle x(1) = −2 değerini çıkarırken dikkat et.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- BÖLÜM 05: SERBEST DÜŞME -->
+      <section id="serbest-dusme" class="card chapter-section" data-chapter="serbest-dusme">
+        <div class="chapter-header">
+          <p class="chapter-kicker">Bölüm 05 · Vize Sınav Konusu</p>
+          <h2 class="chapter-title">05. Serbest Düşme, Düşey Atış ve Eğik Atış (+ Dairesel Hareket)</h2>
+          <p class="chapter-subtitle">
+            Yer çekimi ivmesi g = 10 m/s², yukarı yönlü düşey atış, yüksekten eğik atış ve PDF’teki tüm atış örnekleri.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="subhead">Temel Tanımlar ve Kavramlar</h3>
+          <div class="grid-2">
+            <div class="subpanel">
+              <div class="def-head"><h4 class="def-title">Serbest Düşme (Tablet Notu)</h4></div>
+              <p class="def-text">Dünya yüzeyinde bulunan cisimler büyüklüğü g ≈ 9,8 m/s² (sınavda 10 m/s²) olan ve yönü Dünya’nın merkezine doğru olan yer çekimi ivmesiyle hareket ederler. İlk hızsız (V₀ = 0) bırakılmaya serbest düşme denir.</p>
+            </div>
+            <div class="subpanel">
+              <div class="def-head"><h4 class="def-title">Tepe Noktası Kuralı</h4></div>
+              <p class="def-text">Yukarı doğru atılan bir cisim çıkabileceği maksimum yükseklikte anlık olarak durur, yani tepe noktasında düşey hızı V_y = 0 olur. Tepe noktasından sonra hareket tamamen serbest düşmedir.</p>
+            </div>
+            <div class="subpanel">
+              <div class="def-head"><h4 class="def-title">Yatay Hız Sabitliği (Eğik Atış)</h4></div>
+              <p class="def-text">Hava direnci ihmal edildiğinde yatay doğrultuda kuvvet etki etmez; bu nedenle yatay hız V_x hareket boyunca sabit kalır ve menzil x = V_x · t_toplam ile bulunur.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="subhead">Temel Formüller</h3>
+          <div class="grid-2">
+            <div class="subpanel-white">
+              <p class="formula-label">Serbest Düşme (V₀ = 0, Aşağı Yön +)</p>
+              <div class="math-box">h = ½·g·t² &nbsp;|&nbsp; V<sub>son</sub> = g·t &nbsp;|&nbsp; V<sub>s</sub>² = 2·g·h</div>
+              <p class="formula-desc">PDF Sayfa 2 kutusundaki temel düşme denklemleri. 5-15-25-35 m pratik yol kuralı buradan gelir.</p>
+            </div>
+            <div class="subpanel-white">
+              <p class="formula-label">Yukarı Düşey Atış (Yukarı Yön +)</p>
+              <div class="math-box">V<sub>s</sub> = V₀ − g·t &nbsp;|&nbsp; y<sub>s</sub> − y₀ = V₀·t − ½·g·t² &nbsp;|&nbsp; V<sub>s</sub>² = V₀² − 2g(y<sub>s</sub> − y₀)</div>
+              <p class="formula-desc">Tablet notundaki denklemler. Çıkarken g yavaşlatıcı olduğu için eksi (−) kullanılır.</p>
+            </div>
+            <div class="subpanel-white">
+              <p class="formula-label">Düzgün Dairesel Hareket (PDF Sayfa 2 &amp; 4)</p>
+              <div class="math-box">a<sub>mer</sub> = <span class="frac"><span class="frac-num">V²</span><span class="frac-den">r</span></span>, &nbsp;&nbsp; F<sub>mer</sub> = <span class="frac"><span class="frac-num">m · V²</span><span class="frac-den">r</span></span></div>
+              <p class="formula-desc">Düşey düzlemde en alt noktada (saat 6 yönü) ip gerilmesi T = G + F_mer = mg + mV²/r olur.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="subhead">Hocanın PDF, Tablet ve Tahta Örnekleri (Adım Adım Çözüm)</h3>
+          <div class="examples-stack">
+            <!-- Örnek 5.1 -->
+            <article class="example-card">
+              <div class="example-source">PDF Sayfa 8 — Hocanın Örneği</div>
+              <h4 class="example-title">80 m Yükseklikten Yukarı V₀ = 30 m/s Hızla Atılan Cisim</h4>
+              <p class="example-question">
+                80 m yükseklikten yukarı yönlü V₀ = 30 m/s hızla atılan m kütleli cisim için (g = 10 m/s²): a) Çıkabileceği maksimum ek yükseklik b) Havada kalış süresi c) Yere çarpma hızı nedir?
+              </p>
+              <div class="grid-12">
+                <div class="col-5">
+                  <svg viewBox="0 0 320 220" class="diagram-svg" role="img" aria-label="80 m yükseklikten 30 m/s hızla yukarı atılan cismin hareketi">
+                    <defs><marker id="vt-arrow-s" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#0284C7" /></marker></defs>
+                    <line x1="25" y1="196" x2="295" y2="196" stroke="#334155" stroke-width="2" />
+                    <rect x="40" y="106" width="55" height="90" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5" />
+                    <text x="67" y="154" text-anchor="middle" font-size="11" font-weight="600" fill="#334155" font-family="IBM Plex Mono">80 m</text>
+                    <path d="M 105 102 C 105 28, 155 28, 155 194" fill="none" stroke="#0284C7" stroke-width="2" stroke-dasharray="4 3" />
+                    <circle cx="105" cy="102" r="5" fill="#0F172A" />
+                    <line x1="105" y1="95" x2="105" y2="66" stroke="#0284C7" stroke-width="2" marker-end="url(#vt-arrow-s)" />
+                    <text x="115" y="76" font-size="10" font-weight="600" fill="#0284C7" font-family="IBM Plex Mono">V₀ = 30 m/s</text>
+                    <line x1="100" y1="45" x2="220" y2="45" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3 3" />
+                    <text x="172" y="42" font-size="10" fill="#475569" font-family="IBM Plex Mono">V_tepe = 0 (t=3 s)</text>
+                    <text x="172" y="78" font-size="10" fill="#059669" font-family="IBM Plex Mono">h_ek = 45 m</text>
+                    <text x="172" y="132" font-size="10" fill="#0F172A" font-family="IBM Plex Mono">H_top = 125 m</text>
+                    <text x="172" y="186" font-size="10" font-weight="600" fill="#DC2626" font-family="IBM Plex Mono">V_çarpma = 50 m/s</text>
+                  </svg>
+                </div>
+                <div class="col-7 steps-list">
+                  <div class="step-box">
+                    <p class="step-title">a) Çıkış süresi ve ek yükselme miktarı</p>
+                    <div class="math-line">0 = 30 − 10·t &nbsp;⇒&nbsp; t<sub>çıkış</sub> = 3 s</div>
+                    <div class="math-line">h = 30·3 − ½·10·3² = 90 − 45 = 45 m</div>
+                    <p class="step-detail">Tepe noktasında hız sıfırlanır; cisim atıldığı yerden 45 m daha yukarı çıkar.</p>
+                  </div>
+                  <div class="step-box">
+                    <p class="step-title">b) Toplam yükseklik ve iniş süresi</p>
+                    <div class="math-line">H<sub>top</sub> = 80 + 45 = 125 m &nbsp;⇒&nbsp; 125 = 5·t<sub>iniş</sub>² &nbsp;⇒&nbsp; t<sub>iniş</sub> = 5 s</div>
+                    <p class="step-detail">Toplam havada kalış süresi t_toplam = 3 + 5 = 8 s olur.</p>
+                  </div>
+                  <div class="step-box">
+                    <p class="step-title">c) Yere çarpma hızı</p>
+                    <div class="math-line">V<sub>son</sub> = g·t<sub>iniş</sub> = 10·5 = 50 m/s &nbsp;&nbsp;(veya V² = 2·10·125 = 2500 ⇒ V = 50 m/s)</div>
+                    <p class="step-detail">İki farklı formülden de aynı 50 m/s sonucu elde edilir.</p>
+                  </div>
+                  <div class="result-box mono">Sonuç: a) h_ek = 45 m (yerden 125 m)  |  b) t_toplam = 8 s  |  c) V_çarpma = 50 m/s</div>
+                  <div class="tip-box">
+                    <strong>Sınav İpucu:</strong>
+                    <span>PDF Sayfa 8’de 125 = 5·t² işleminden sonra t = √125 = 5 yazılmış; matematiksel olarak 125/5 = 25, √25 = 5 s’dir.</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Örnek 5.2 -->
+            <article class="example-card">
+              <div class="example-source">PDF Sayfa 7 — Hocanın Örneği</div>
+              <h4 class="example-title">45 m Yükseklikten 30° Açıyla Eğik Atılan Cisim</h4>
+              <p class="example-question">
+                45 m yükseklikten V = 20 m/s hızla yatayla 30° açı yapacak şekilde yukarı atılan cisim için tepe yüksekliği, uçuş süresi, yatay menzil ve çarpma hızını bulunuz.
+              </p>
+              <div class="grid-12">
+                <div class="col-5">
+                  <svg viewBox="0 0 340 210" class="diagram-svg" role="img" aria-label="45 m yükseklikten 30 derece açıyla 20 m/s hızla eğik atış diyagramı">
+                    <line x1="20" y1="185" x2="320" y2="185" stroke="#334155" stroke-width="2" />
+                    <rect x="35" y="95" width="45" height="90" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5" />
+                    <text x="57" y="144" text-anchor="middle" font-size="11" font-weight="600" fill="#334155" font-family="IBM Plex Mono">45 m</text>
+                    <line x1="80" y1="95" x2="170" y2="95" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3 3" />
+                    <path d="M 80 95 Q 145 35 265 184" fill="none" stroke="#0284C7" stroke-width="2.2" />
+                    <circle cx="80" cy="95" r="4.5" fill="#0F172A" />
+                    <line x1="80" y1="95" x2="122" y2="66" stroke="#DC2626" stroke-width="2" />
+                    <text x="115" y="62" font-size="10" font-weight="600" fill="#DC2626" font-family="IBM Plex Mono">V=20 m/s (30°)</text>
+                    <text x="150" y="42" font-size="10" fill="#059669" font-family="IBM Plex Mono">H_max = 50 m</text>
+                    <text x="175" y="176" font-size="10" font-weight="600" fill="#0F172A" font-family="IBM Plex Mono">Menzil x = 56 m</text>
+                  </svg>
+                </div>
+                <div class="col-7 steps-list">
+                  <div class="step-box">
+                    <p class="step-title">1) Hız bileşenleri (hocanın sin30°=0,5 ve cos30°≈0,7 kabulüyle)</p>
+                    <div class="math-line">V<sub>y</sub> = 20 · 0,5 = 10 m/s<br />V<sub>x</sub> = 20 · 0,7 = 14 m/s</div>
+                    <p class="step-detail">Not: Gerçek cos30° = √3/2 ≈ 0,866’dır ancak PDF’te 0,7 alınarak Vx = 14 m/s hesaplanmıştır.</p>
+                  </div>
+                  <div class="step-box">
+                    <p class="step-title">2) Çıkış süresi ve toplam yükseklik</p>
+                    <div class="math-line">0 = 10 − 10t &nbsp;⇒&nbsp; t<sub>çıkış</sub> = 1 s<br />h<sub>ek</sub> = ½·10·1² = 5 m &nbsp;⇒&nbsp; H<sub>top</sub> = 45 + 5 = 50 m</div>
+                    <p class="step-detail">Tepe noktası yerden 50 m yüksekliktedir.</p>
+                  </div>
+                  <div class="step-box">
+                    <p class="step-title">3) İniş süresi, menzil ve çarpma hızı</p>
+                    <div class="math-line">50 = 5·t<sub>iniş</sub>² &nbsp;⇒&nbsp; t<sub>iniş</sub> ≈ 3 s &nbsp;⇒&nbsp; t<sub>top</sub> = 1 + 3 = 4 s<br />x = V<sub>x</sub>·t<sub>top</sub> = 14·4 = 56 m, &nbsp;&nbsp; V<sub>y,son</sub> = 10·3 = 30 m/s</div>
+                    <p class="step-detail">Bileşke çarpma hızı: V = √(14² + 30²) = √1096 ≈ 33,1 m/s (PDF’te yaklaşık 35 m/s yuvarlanmış).</p>
+                  </div>
+                  <div class="result-box mono">Sonuç: H_max = 50 m  |  t_top ≈ 4 s  |  x = 56 m  |  V_çarpma ≈ 33,1 – 35 m/s</div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Örnek 5.3 -->
+            <article class="example-card">
+              <div class="example-source">PDF Sayfa 4 — Ek Dairesel Hareket Örneği</div>
+              <h4 class="example-title">Düşey Düzlemde Dönen Cismin Saat 6 Konumunda İp Gerilmesi</h4>
+              <p class="example-question">
+                r = 1 m yarıçaplı ipin ucuna bağlı m = 1 kg kütleli cisim v = 30 m/s hızla düşey düzlemde döndürülüyor. Saat 3 konumundan saat 6 (en alt) konumuna geldiğinde ip gerilmesi T kaç N olur?
+              </p>
+              <div class="grid-12">
+                <div class="col-5">
+                  <svg viewBox="0 0 260 190" class="diagram-svg" style="max-width:260px;" role="img" aria-label="Düşey düzlemde dairesel hareket saat 6 noktasında ip gerilmesi">
+                    <circle cx="130" cy="86" r="56" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4 3" />
+                    <circle cx="130" cy="86" r="3" fill="#0F172A" />
+                    <line x1="130" y1="86" x2="130" y2="142" stroke="#0F172A" stroke-width="2" />
+                    <circle cx="130" cy="142" r="6" fill="#0284C7" />
+                    <text x="136" y="115" font-size="10" fill="#0F172A" font-family="IBM Plex Mono">T ↑</text>
+                    <text x="188" y="90" font-size="10" fill="#64748B" font-family="IBM Plex Mono">Saat 3</text>
+                    <text x="122" y="160" font-size="10" font-weight="600" fill="#DC2626" font-family="IBM Plex Mono">G + Fmer = 910 N ↓</text>
+                  </svg>
+                </div>
+                <div class="col-7 steps-list">
+                  <div class="step-box">
+                    <p class="step-title">1) Cismin ağırlığı ve merkezcil kuvvet</p>
+                    <div class="math-line">G = m·g = 1·10 = 10 N, &nbsp;&nbsp; F<sub>mer</sub> = <span class="frac"><span class="frac-num">1·30²</span><span class="frac-den">1</span></span> = 900 N</div>
+                    <p class="step-detail">En alt noktada (saat 6) ağırlık da merkezkaç yönünde (aşağı) etki eder.</p>
+                  </div>
+                  <div class="step-box">
+                    <p class="step-title">2) İp gerilmesi T</p>
+                    <div class="math-line">T = G + F<sub>mer</sub> = 10 + 900 = 910 N</div>
+                    <p class="step-detail">İki kuvvet aynı yönde (aşağı) olduğu için toplanır.</p>
+                  </div>
+                  <div class="result-box mono">Sonuç: T = 910 N</div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Etkileşimli Serbest Düşme Laboratuvarı -->
+        <div class="lab-box no-print">
+          <div class="lab-head">
+            <div>
+              <p class="chapter-kicker" style="margin-bottom:2px;">Etkileşimli Laboratuvar · PDF Sayfa 8 Örneği (g = 10 m/s²)</p>
+              <h4 style="font-size:16px;font-weight:600;">Serbest Düşme ve Yukarı Düşey Atış Simülatörü</h4>
+            </div>
+            <button type="button" id="ff-reset" class="btn-outline">80 m / 30 m/s PDF Örneğine Dön</button>
+          </div>
+          <div class="grid-12" style="align-items:center;">
+            <div class="col-5">
+              <svg viewBox="0 0 280 220" class="lab-svg" role="img" aria-label="Düşey atış ve serbest düşme yükseklik simülasyonu">
+                <line x1="20" y1="195" x2="260" y2="195" stroke="#334155" stroke-width="2" />
+                <rect id="ff-cliff" x="35" y="98" width="45" height="97" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5" />
+                <path id="ff-path" d="M 95 98 C 95 43, 145 43, 145 195" fill="none" stroke="#0284C7" stroke-width="2.2" stroke-dasharray="4 3" />
+                <circle id="ff-ball" cx="95" cy="98" r="4.5" fill="#0F172A" />
+                <line id="ff-peak-line" x1="90" y1="43" x2="245" y2="43" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3 3" />
+                <text id="ff-peak-txt" x="155" y="38" font-size="10" font-weight="600" fill="#059669" font-family="IBM Plex Mono">H_max = 125.0 m</text>
+                <text id="ff-imp-txt" x="155" y="185" font-size="10" font-weight="600" fill="#DC2626" font-family="IBM Plex Mono">V_çarpma = 50.0 m/s</text>
+              </svg>
+            </div>
+            <div class="col-7" style="display:flex;flex-direction:column;gap:14px;">
+              <div class="grid-2">
+                <div>
+                  <label class="slider-label" for="ff-h0"><span>Başlangıç Yüksekliği (h₀)</span><span id="ff-h0-val" class="mono" style="color:#0369a1;">80 m</span></label>
+                  <input id="ff-h0" type="range" min="0" max="125" step="5" value="80" />
+                </div>
+                <div>
+                  <label class="slider-label" for="ff-v0"><span>İlk Hız V₀ (0 = Serbest Düşme)</span><span id="ff-v0-val" class="mono" style="color:#0369a1;">30 m/s</span></label>
+                  <input id="ff-v0" type="range" min="0" max="50" step="5" value="30" />
+                </div>
+              </div>
+              <div class="metrics-4">
+                <div class="metric-tile"><div class="metric-lbl">Ek Çıkış (h_ek)</div><div id="ff-hextra" data-testid="ff-hextra" class="metric-val mono">45.0 m</div></div>
+                <div class="metric-tile"><div class="metric-lbl">Max Yükseklik</div><div id="ff-hmax" data-testid="ff-hmax" class="metric-val mono" style="color:#047857;">125.0 m</div></div>
+                <div class="metric-tile"><div class="metric-lbl">Toplam Süre</div><div id="ff-ttotal" data-testid="ff-ttotal" class="metric-val mono">8.00 s</div></div>
+                <div class="metric-tile"><div class="metric-lbl" style="color:#b91c1c;">Çarpma Hızı</div><div id="ff-vimpact" data-testid="ff-vimpact" class="metric-val mono" style="color:#b91c1c;font-weight:700;">50.0 m/s</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="takeaways">
+          <h3 class="subhead" style="font-size:14px;">Bölüm 05 — Sınav Kontrol Noktaları</h3>
+          <ul>
+            <li>Serbest düşmede kütlenin (m) formüllerde sadeleştiğini ve düşme süresini etkilemediğini unutma.</li>
+            <li>Yukarı atılan cisimde toplam yükseklik = kule yüksekliği + çıkış yüksekliğidir.</li>
+            <li>Yere çarpma hızı sorulursa V² = 2gH formülü süreyi bulmadan doğrudan sonuç verir.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- TEK SAYFALIK FORMÜL KARTI -->
+      <section id="formul-ozeti" class="card print-break-before">
+        <div class="chapter-header" style="margin-bottom:20px;">
+          <p class="chapter-kicker">Sınav Öncesi Hızlı Tekrar · Tek Sayfalık Başvuru Tablosu</p>
+          <h2 class="chapter-title">Fizik I Vize Formül ve Referans Kartı</h2>
+        </div>
+
+        <div class="grid-2">
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div class="subpanel">
+              <h3 class="subhead" style="font-size:14px;margin-bottom:8px;">Sabit İvmeli Hareket (Tahtadaki 5 Denklem)</h3>
+              <div class="sheet-row"><span>Son Hız</span><span class="mono">V<sub>s</sub> = V₀ + a · t</span></div>
+              <div class="sheet-row"><span>Konum Değişimi</span><span class="mono">x<sub>s</sub> − x₀ = V₀·t + ½·a·t²</span></div>
+              <div class="sheet-row"><span>Zamansız Hız</span><span class="mono">V<sub>s</sub>² = V₀² + 2a(x<sub>s</sub> − x₀)</span></div>
+              <div class="sheet-row"><span>Ortalama İvme</span><span class="mono">a = (V<sub>s</sub> − V₀) / t</span></div>
+              <div class="sheet-row"><span>Ortalama Hızla Yol</span><span class="mono">x<sub>s</sub> − x₀ = ½(V₀ + V<sub>s</sub>)·t</span></div>
+            </div>
+
+            <div class="subpanel">
+              <h3 class="subhead" style="font-size:14px;margin-bottom:8px;">Anlık Hız, Vektörler ve Serbest Düşme</h3>
+              <div class="sheet-row"><span>Ortalama Hız / Sürat</span><span class="mono">V<sub>ort</sub> = (x₂−x₁)/(t₂−t₁) · Sürat = Yol/Δt</span></div>
+              <div class="sheet-row"><span>Anlık Hız (Türev)</span><span class="mono">v(t) = dx/dt · (at²+bt)' = 2at+b</span></div>
+              <div class="sheet-row"><span>Vektör Bileşke</span><span class="mono">Fx = F·cosθ · Fb = √(Fx² + Fy²)</span></div>
+              <div class="sheet-row"><span>Kosinüs Teoremi</span><span class="mono">c = √(a² + b² ± 2ab·cosθ)</span></div>
+              <div class="sheet-row"><span>Serbest Düşme (V₀=0)</span><span class="mono">h = ½gt² · Vs = gt · Vs² = 2gh</span></div>
+              <div class="sheet-row"><span>Yukarı Düşey Atış</span><span class="mono">Vs = V₀ − gt · ys−y₀ = V₀t − ½gt²</span></div>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div class="subpanel-white">
+              <h3 class="subhead" style="font-size:14px;margin-bottom:6px;">Trigonometri &amp; Özel Dik Üçgenler</h3>
+              <p style="font-size:12px;color:#475569;margin-bottom:10px;">
+                Özel üçgenler: <strong class="mono">3-4-5</strong> · <strong class="mono">6-8-10</strong> · <strong class="mono">5-12-13</strong> · <strong class="mono">8-15-17</strong>
+              </p>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>Açı</th><th>sin θ</th><th>cos θ</th><th>tan θ</th></tr></thead>
+                  <tbody class="mono">
+                    <tr><td style="font-weight:700;color:#0369a1;">30°</td><td>0,5 (1/2)</td><td>0,866 (√3/2 ≈ 0,7*)</td><td>1/√3</td></tr>
+                    <tr><td style="font-weight:700;color:#0369a1;">37°</td><td>0,6 (3/5)</td><td>0,8 (4/5)</td><td>0,75 (3/4)</td></tr>
+                    <tr><td style="font-weight:700;color:#0369a1;">45°</td><td>0,707 (√2/2)</td><td>0,707 (√2/2)</td><td>1</td></tr>
+                    <tr><td style="font-weight:700;color:#0369a1;">53°</td><td>0,8 (4/5)</td><td>0,6 (3/5)</td><td>1,33 (4/3)</td></tr>
+                    <tr><td style="font-weight:700;color:#0369a1;">60°</td><td>0,866 (√3/2)</td><td>0,5 (1/2)</td><td>√3</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="subpanel-white">
+              <h3 class="subhead" style="font-size:14px;margin-bottom:8px;">KISAMUZ Temel Büyüklükler ve Elektronik Ön Ekleri</h3>
+              <div class="grid-2" style="gap:6px 16px;font-size:12px;margin-bottom:12px;">
+                <div class="sheet-row" style="padding:4px 0;"><span><strong class="mono" style="color:#0369a1;">K</strong> · Kütle</span><span class="mono">kg</span></div>
+                <div class="sheet-row" style="padding:4px 0;"><span><strong class="mono" style="color:#0369a1;">I</strong> · Işık Şiddeti</span><span class="mono">cd</span></div>
+                <div class="sheet-row" style="padding:4px 0;"><span><strong class="mono" style="color:#0369a1;">S</strong> · Sıcaklık</span><span class="mono">K</span></div>
+                <div class="sheet-row" style="padding:4px 0;"><span><strong class="mono" style="color:#0369a1;">A</strong> · Akım Şiddeti</span><span class="mono">A</span></div>
+                <div class="sheet-row" style="padding:4px 0;"><span><strong class="mono" style="color:#0369a1;">M</strong> · Madde Miktarı</span><span class="mono">mol</span></div>
+                <div class="sheet-row" style="padding:4px 0;"><span><strong class="mono" style="color:#0369a1;">U</strong> · Uzunluk</span><span class="mono">m</span></div>
+                <div class="sheet-row" style="padding:4px 0;"><span><strong class="mono" style="color:#0369a1;">Z</strong> · Zaman</span><span class="mono">s</span></div>
+              </div>
+              <div style="border-top:1px solid var(--border);padding-top:10px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;font-size:12px;" class="mono">
+                <div><strong>G</strong> (Giga): 10⁹</div>
+                <div><strong>M</strong> (Mega): 10⁶</div>
+                <div><strong>k</strong> (Kilo): 10³</div>
+                <div><strong>c</strong> (Santi): 10⁻²</div>
+                <div><strong>m</strong> (Mili): 10⁻³</div>
+                <div><strong>μ</strong> (Mikro): 10⁻⁶</div>
+                <div><strong>n</strong> (Nano): 10⁻⁹</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- KENDİNİ DENE: MİNİ VİZE TESTİ -->
+      <section id="kendini-dene" class="card no-print">
+        <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:20px;">
+          <div>
+            <p class="chapter-kicker">Sınav Pratiği · 8 Vize Tipi Soru</p>
+            <h2 class="chapter-title" style="margin:0;">Kendini Dene — Mini Vize Testi</h2>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span id="quiz-score" data-testid="quiz-score" class="mono" style="font-size:13px;font-weight:600;display:none;"></span>
+            <button type="button" id="quiz-check" class="btn-primary" disabled>Cevapları Kontrol Et</button>
+            <button type="button" id="quiz-reset" class="btn-secondary" aria-label="Testi Sıfırla">Sıfırla</button>
+          </div>
+        </div>
+        <div id="quiz-grid" class="grid-2"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer no-print">
+      <div class="footer-inner">
+        <span>Tekirdağ Namık Kemal Üniversitesi · Çorlu Meslek Yüksekokulu · Elektronik Teknolojisi Programı</span>
+        <span>Fizik I Vize Çalışma Notu · HTML / CSS / JS &amp; A4 PDF</span>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        // 1. Konu Filtresi & Üst Menü Navigasyonu
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const chapterSections = document.querySelectorAll('.chapter-section');
+        const navLinks = document.querySelectorAll('[data-nav], #link-formul, #link-quiz');
+
+        function setFilter(filterId) {
+          filterBtns.forEach((btn) => {
+            btn.classList.toggle('active', btn.dataset.filter === filterId);
+          });
+          chapterSections.forEach((sec) => {
+            const match = filterId === 'all' || sec.dataset.chapter === filterId;
+            sec.classList.toggle('hidden-chapter', !match);
+          });
+        }
+
+        filterBtns.forEach((btn) => {
+          btn.addEventListener('click', () => setFilter(btn.dataset.filter));
+        });
+
+        navLinks.forEach((link) => {
+          link.addEventListener('click', () => setFilter('all'));
+        });
+
+        // 2. PDF İndir & Yazdır (A4)
+        const pdfBtn = document.getElementById('btn-pdf-download');
+        const printBtn = document.getElementById('btn-print-a4');
+        const statusBanner = document.getElementById('pdf-status-banner');
+
+        function showBanner(msg) {
+          statusBanner.textContent = msg;
+          statusBanner.classList.add('visible');
+        }
+
+        printBtn.addEventListener('click', () => window.print());
+
+        pdfBtn.addEventListener('click', async () => {
+          if (!window.location.protocol.startsWith('http')) {
+            showBanner('Yerel dosya modunda doğrudan A4 Yazdır / PDF Kaydet penceresi açılıyor.');
+            window.print();
+            return;
+          }
+          pdfBtn.disabled = true;
+          const labelSpan = pdfBtn.querySelector('span');
+          labelSpan.textContent = 'Hazırlanıyor...';
+          statusBanner.classList.remove('visible');
+          try {
+            const resp = await fetch('/api/export-pdf');
+            if (!resp.ok) throw new Error('PDF hatası');
+            const blob = await resp.blob();
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'NKU_Corlu_MYO_Fizik1_Vize_Ders_Notu.pdf';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+            showBanner('A4 PDF ders notu indirildi (NKU_Corlu_MYO_Fizik1_Vize_Ders_Notu.pdf).');
+          } catch (err) {
+            showBanner('Sunucu PDF indirmesi başarısız oldu, Yazdır (A4) ile PDF kaydedebilirsiniz.');
+          } finally {
+            pdfBtn.disabled = false;
+            labelSpan.textContent = 'PDF İndir';
+          }
+        });
+
+        // 3. Etkileşimli Laboratuvar 1: Vektör Bileşkesi
+        const vecF1 = document.getElementById('vec-f1');
+        const vecA1 = document.getElementById('vec-a1');
+        const vecF2 = document.getElementById('vec-f2');
+        const vecA2 = document.getElementById('vec-a2');
+
+        function updateVectorLab() {
+          const f1 = Number(vecF1.value);
+          const a1 = Number(vecA1.value);
+          const f2 = Number(vecF2.value);
+          const a2 = Number(vecA2.value);
+
+          document.getElementById('vec-f1-val').textContent = f1 + ' N';
+          document.getElementById('vec-a1-val').textContent = a1 + '°';
+          document.getElementById('vec-f2-val').textContent = f2 + ' N';
+          document.getElementById('vec-a2-val').textContent = a2 + '°';
+
+          const r1 = (a1 * Math.PI) / 180;
+          const r2 = (a2 * Math.PI) / 180;
+          const f1x = f1 * Math.cos(r1);
+          const f1y = f1 * Math.sin(r1);
+          const f2x = f2 * Math.cos(r2);
+          const f2y = f2 * Math.sin(r2);
+          const sumX = f1x + f2x;
+          const sumY = f1y + f2y;
+          const resultant = Math.hypot(sumX, sumY);
+
+          document.getElementById('vec-sum-x').textContent = sumX.toFixed(1) + ' N';
+          document.getElementById('vec-sum-y').textContent = sumY.toFixed(1) + ' N';
+          document.getElementById('vec-resultant').textContent = resultant.toFixed(1) + ' N';
+          document.getElementById('vec-trig-readout').textContent =
+            'cos(' + a1 + '°) = ' + Math.cos(r1).toFixed(2) + ' · sin(' + a1 + '°) = ' + Math.sin(r1).toFixed(2);
+
+          const cx = 160, cy = 140, scale = 2.2;
+          const x1 = cx + f1x * scale, y1 = cy - f1y * scale;
+          const x2 = cx + f2x * scale, y2 = cy - f2y * scale;
+          const xr = cx + sumX * scale, yr = cy - sumY * scale;
+
+          const line1 = document.getElementById('svg-vec-f1');
+          line1.setAttribute('x2', x1.toFixed(1));
+          line1.setAttribute('y2', y1.toFixed(1));
+
+          const line2 = document.getElementById('svg-vec-f2');
+          line2.setAttribute('x2', x2.toFixed(1));
+          line2.setAttribute('y2', y2.toFixed(1));
+
+          const lineR = document.getElementById('svg-vec-fb');
+          lineR.setAttribute('x2', xr.toFixed(1));
+          lineR.setAttribute('y2', yr.toFixed(1));
+
+          const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+          document.getElementById('svg-lbl-f1').setAttribute('x', clamp(x1 + 6, 20, 275).toFixed(1));
+          document.getElementById('svg-lbl-f1').setAttribute('y', clamp(y1 - 4, 24, 240).toFixed(1));
+          document.getElementById('svg-lbl-f2').setAttribute('x', clamp(x2 - 14, 20, 275).toFixed(1));
+          document.getElementById('svg-lbl-f2').setAttribute('y', clamp(y2 - 4, 24, 240).toFixed(1));
+          document.getElementById('svg-lbl-fb').setAttribute('x', clamp(xr + 6, 20, 275).toFixed(1));
+          document.getElementById('svg-lbl-fb').setAttribute('y', clamp(yr - 6, 24, 240).toFixed(1));
+        }
+
+        [vecF1, vecA1, vecF2, vecA2].forEach((el) => el.addEventListener('input', updateVectorLab));
+        document.getElementById('vec-reset').addEventListener('click', () => {
+          vecF1.value = 25; vecA1.value = 37; vecF2.value = 20; vecA2.value = 127;
+          updateVectorLab();
+        });
+        updateVectorLab();
+
+        // 4. Etkileşimli Laboratuvar 2: Anlık Hız & Türev Grafiği
+        const derivT = document.getElementById('deriv-t');
+        const mapDX = (time) => 40 + (time / 4) * 260;
+        const mapDY = (xVal) => 180 - ((xVal + 4) / 20) * 155;
+
+        const pts = [];
+        for (let i = 0; i <= 40; i++) {
+          const ti = (i / 40) * 4;
+          const xi = 2 * ti * ti - 4 * ti;
+          pts.push(mapDX(ti).toFixed(1) + ',' + mapDY(xi).toFixed(1));
+        }
+        document.getElementById('deriv-curve').setAttribute('points', pts.join(' '));
+
+        function updateDerivativeLab() {
+          const t = Number(derivT.value);
+          const pos = 2 * t * t - 4 * t;
+          const vel = 4 * t - 4;
+
+          document.getElementById('deriv-t-val').textContent = t.toFixed(1) + ' s';
+          document.getElementById('deriv-pos-t').textContent = t.toFixed(1);
+          document.getElementById('deriv-vel-t').textContent = t.toFixed(1);
+          document.getElementById('deriv-pos').textContent = pos.toFixed(2) + ' m';
+          document.getElementById('deriv-vel').textContent = vel.toFixed(1) + ' m/s';
+
+          const tL = Math.max(0, t - 0.7);
+          const tR = Math.min(4, t + 0.7);
+          const xL = pos + vel * (tL - t);
+          const xR = pos + vel * (tR - t);
+
+          const tang = document.getElementById('deriv-tangent');
+          tang.setAttribute('x1', mapDX(tL).toFixed(1));
+          tang.setAttribute('y1', mapDY(xL).toFixed(1));
+          tang.setAttribute('x2', mapDX(tR).toFixed(1));
+          tang.setAttribute('y2', mapDY(xR).toFixed(1));
+
+          const dot = document.getElementById('deriv-dot');
+          dot.setAttribute('cx', mapDX(t).toFixed(1));
+          dot.setAttribute('cy', mapDY(pos).toFixed(1));
+        }
+
+        derivT.addEventListener('input', updateDerivativeLab);
+        derivT.addEventListener('change', updateDerivativeLab);
+        document.getElementById('deriv-reset').addEventListener('click', () => {
+          derivT.value = 2.5;
+          updateDerivativeLab();
+        });
+        updateDerivativeLab();
+
+        // 5. Etkileşimli Laboratuvar 3: Serbest Düşme & Yukarı Düşey Atış
+        const ffH0 = document.getElementById('ff-h0');
+        const ffV0 = document.getElementById('ff-v0');
+
+        function updateFreeFallLab() {
+          const h0 = Number(ffH0.value);
+          const v0 = Number(ffV0.value);
+          const g = 10;
+
+          document.getElementById('ff-h0-val').textContent = h0 + ' m';
+          document.getElementById('ff-v0-val').textContent = v0 + ' m/s';
+
+          const tUp = v0 / g;
+          const hExtra = v0 * tUp - 0.5 * g * tUp * tUp;
+          const hMax = h0 + hExtra;
+          const tDown = Math.sqrt((2 * hMax) / g);
+          const tTotal = tUp + tDown;
+          const vImpact = g * tDown;
+
+          document.getElementById('ff-hextra').textContent = hExtra.toFixed(1) + ' m';
+          document.getElementById('ff-hmax').textContent = hMax.toFixed(1) + ' m';
+          document.getElementById('ff-ttotal').textContent = tTotal.toFixed(2) + ' s';
+          document.getElementById('ff-vimpact').textContent = vImpact.toFixed(1) + ' m/s';
+
+          const maxDisplayH = Math.max(140, hMax + 15);
+          const groundY = 195, topPad = 25;
+          const hToY = (h) => groundY - (h / maxDisplayH) * (groundY - topPad);
+          const startY = hToY(h0);
+          const peakY = hToY(hMax);
+
+          const cliff = document.getElementById('ff-cliff');
+          if (h0 > 0) {
+            cliff.style.display = 'block';
+            cliff.setAttribute('y', startY.toFixed(1));
+            cliff.setAttribute('height', (groundY - startY).toFixed(1));
+          } else {
+            cliff.style.display = 'none';
+          }
+
+          document.getElementById('ff-path').setAttribute(
+            'd',
+            'M 95 ' + startY.toFixed(1) + ' C 95 ' + peakY.toFixed(1) + ', 145 ' + peakY.toFixed(1) + ', 145 ' + groundY
+          );
+          document.getElementById('ff-ball').setAttribute('cy', startY.toFixed(1));
+          document.getElementById('ff-peak-line').setAttribute('y1', peakY.toFixed(1));
+          document.getElementById('ff-peak-line').setAttribute('y2', peakY.toFixed(1));
+          document.getElementById('ff-peak-txt').setAttribute('y', Math.max(16, peakY - 5).toFixed(1));
+          document.getElementById('ff-peak-txt').textContent = 'H_max = ' + hMax.toFixed(1) + ' m';
+          document.getElementById('ff-imp-txt').textContent = 'V_çarpma = ' + vImpact.toFixed(1) + ' m/s';
+        }
+
+        ffH0.addEventListener('input', updateFreeFallLab);
+        ffV0.addEventListener('input', updateFreeFallLab);
+        document.getElementById('ff-reset').addEventListener('click', () => {
+          ffH0.value = 80; ffV0.value = 30;
+          updateFreeFallLab();
+        });
+        updateFreeFallLab();
+
+        // 6. Kendini Dene — 8 Soruluk Mini Vize Testi
+        const QUIZ_QUESTIONS = [
+          {
+            id: 'q1',
+            topic: 'Ölçü & Birimler',
+            question: 'Aşağıdakilerden hangisi SI temel büyüklüklerinden (KISAMUZ) biri olan Akım Şiddetinin birimidir ve vektörel olmayan (skaler) bir büyüklüktür?',
+            options: ['Volt (V)', 'Amper (A)', 'Newton (N)', 'Ohm (Ω)'],
+            correctIndex: 1,
+            explanation: 'KISAMUZ’daki A harfi Akım Şiddetini temsil eder; SI birimi Amper (A)’dir ve skaler büyüklüktür.'
+          },
+          {
+            id: 'q2',
+            topic: 'Ölçü & Dönüşüm',
+            question: '108 km/h hızla hareket eden bir trenin hızı SI birim sisteminde kaç m/s’dir?',
+            options: ['20 m/s', '25 m/s', '30 m/s', '36 m/s'],
+            correctIndex: 2,
+            explanation: 'km/h’den m/s’ye geçerken 3,6’ya bölünür: 108 / 3,6 = 30 m/s.'
+          },
+          {
+            id: 'q3',
+            topic: 'Vektörler',
+            question: 'F₁ = 3i − 2j + 4k ve F₂ = −i + 5j − 2k vektörleri veriliyor. F₁ − F₂ vektörü aşağıdakilerden hangisidir?',
+            options: ['2i + 3j + 2k', '4i − 7j + 6k', '4i + 3j + 2k', '2i − 7j + 6k'],
+            correctIndex: 1,
+            explanation: 'F₁ − F₂ = (3 − (−1))i + (−2 − 5)j + (4 − (−2))k = 4i − 7j + 6k.'
+          },
+          {
+            id: 'q4',
+            topic: 'Vektörler (Bileşen)',
+            question: 'Yatayla 53° açı yapan 25 N büyüklüğündeki bir kuvvetin yatay (Fx) ve düşey (Fy) bileşenleri sırasıyla kaç N’dur? (sin53° = 0,8; cos53° = 0,6)',
+            options: ['Fx = 20 N, Fy = 15 N', 'Fx = 15 N, Fy = 20 N', 'Fx = 12 N, Fy = 16 N', 'Fx = 16 N, Fy = 12 N'],
+            correctIndex: 1,
+            explanation: 'Fx = 25 · cos53° = 25 · 0,6 = 15 N; Fy = 25 · sin53° = 25 · 0,8 = 20 N.'
+          },
+          {
+            id: 'q5',
+            topic: 'Ortalama Hız & Sürat',
+            question: 'Bir araç x = 10 m noktasından önce x = 40 m’ye gidip, ardından geri dönerek x = −20 m noktasına toplam 20 saniyede ulaşıyor. Aracın ortalama hızı ve ortalama sürati nedir?',
+            options: [
+              'Ortalama hız: −1,5 m/s, Sürat: 4,5 m/s',
+              'Ortalama hız: 4,5 m/s, Sürat: 1,5 m/s',
+              'Ortalama hız: −1,5 m/s, Sürat: 1,5 m/s',
+              'Ortalama hız: −3,0 m/s, Sürat: 3,0 m/s'
+            ],
+            correctIndex: 0,
+            explanation: 'Yer değiştirme Δx = −20 − 10 = −30 m ⇒ V_ort = −30/20 = −1,5 m/s. Toplam yol = 30 + 60 = 90 m ⇒ Sürat = 90/20 = 4,5 m/s.'
+          },
+          {
+            id: 'q6',
+            topic: 'Anlık Hız (Türev)',
+            question: 'Konum denklemi x(t) = 3t² − 6t + 4 olan bir cismin t = 2 s anındaki anlık hızı kaç m/s’dir?',
+            options: ['0 m/s', '4 m/s', '6 m/s', '12 m/s'],
+            correctIndex: 2,
+            explanation: 'v(t) = dx/dt = 6t − 6. t = 2 s için v(2) = 6(2) − 6 = 6 m/s.'
+          },
+          {
+            id: 'q7',
+            topic: 'Sabit İvmeli Hareket',
+            question: 'İlk hızı 8 m/s olan bir araç sabit 4 m/s² ivmeyle 5 saniye hızlanırsa son hızı ve bu sürede aldığı yol kaç metre olur?',
+            options: ['Vs = 28 m/s, x = 90 m', 'Vs = 20 m/s, x = 70 m', 'Vs = 28 m/s, x = 75 m', 'Vs = 32 m/s, x = 100 m'],
+            correctIndex: 0,
+            explanation: 'Vs = 8 + 4·5 = 28 m/s. Yol x = 8·5 + ½·4·5² = 40 + 50 = 90 m.'
+          },
+          {
+            id: 'q8',
+            topic: 'Serbest Düşme',
+            question: '45 m yükseklikten ilk hızsız serbest bırakılan bir taş yere kaç saniyede ve hangi hızla çarpar? (g = 10 m/s²)',
+            options: ['3 s ve 30 m/s', '4 s ve 40 m/s', '3 s ve 45 m/s', '5 s ve 50 m/s'],
+            correctIndex: 0,
+            explanation: 'h = ½gt² ⇒ 45 = 5t² ⇒ t² = 9 ⇒ t = 3 s. Çarpma hızı Vs = g·t = 10·3 = 30 m/s.'
+          }
+        ];
+
+        const quizGrid = document.getElementById('quiz-grid');
+        const quizCheckBtn = document.getElementById('quiz-check');
+        const quizResetBtn = document.getElementById('quiz-reset');
+        const quizScoreEl = document.getElementById('quiz-score');
+
+        let answers = {};
+        let isChecked = false;
+
+        function renderQuiz() {
+          quizGrid.innerHTML = '';
+          let correctCount = 0;
+
+          QUIZ_QUESTIONS.forEach((q, idx) => {
+            const selected = answers[q.id];
+            if (selected === q.correctIndex) correctCount++;
+
+            const card = document.createElement('div');
+            card.className = 'quiz-card';
+
+            const top = document.createElement('div');
+            top.innerHTML =
+              '<div class="quiz-meta"><span>Soru ' + (idx + 1) + '</span><span>' + q.topic + '</span></div>' +
+              '<p class="quiz-q">' + q.question + '</p>';
+
+            const optsWrap = document.createElement('div');
+            optsWrap.className = 'quiz-options';
+
+            q.options.forEach((opt, oIdx) => {
+              const btn = document.createElement('button');
+              btn.type = 'button';
+              btn.className = 'quiz-opt';
+              if (isChecked) {
+                if (oIdx === q.correctIndex) btn.classList.add('correct');
+                else if (selected === oIdx) btn.classList.add('wrong');
+              } else if (selected === oIdx) {
+                btn.classList.add('selected');
+              }
+
+              const letter = String.fromCharCode(65 + oIdx);
+              const leftSpan = document.createElement('span');
+              leftSpan.innerHTML = '<strong class="mono">' + letter + ') </strong>' + opt;
+              btn.appendChild(leftSpan);
+
+              if (isChecked && oIdx === q.correctIndex) {
+                const okMark = document.createElement('span');
+                okMark.textContent = '✓';
+                okMark.setAttribute('aria-hidden', 'true');
+                btn.appendChild(okMark);
+              } else if (isChecked && selected === oIdx && oIdx !== q.correctIndex) {
+                const badMark = document.createElement('span');
+                badMark.textContent = '✕';
+                badMark.setAttribute('aria-hidden', 'true');
+                btn.appendChild(badMark);
+              }
+
+              btn.addEventListener('click', () => {
+                answers[q.id] = oIdx;
+                renderQuiz();
+              });
+              optsWrap.appendChild(btn);
+            });
+
+            top.appendChild(optsWrap);
+            card.appendChild(top);
+
+            if (isChecked) {
+              const exp = document.createElement('div');
+              exp.className = 'quiz-exp';
+              if (selected === q.correctIndex) exp.style.color = '#065f46';
+              exp.innerHTML = '<strong>Çözüm: </strong>' + q.explanation;
+              card.appendChild(exp);
+            }
+
+            quizGrid.appendChild(card);
+          });
+
+          quizCheckBtn.disabled = Object.keys(answers).length === 0;
+          if (isChecked) {
+            quizScoreEl.style.display = 'inline';
+            quizScoreEl.textContent = 'Sonuç: ' + correctCount + ' / ' + QUIZ_QUESTIONS.length + ' Doğru';
+          } else {
+            quizScoreEl.style.display = 'none';
+          }
+        }
+
+        quizCheckBtn.addEventListener('click', () => {
+          isChecked = true;
+          renderQuiz();
+        });
+
+        quizResetBtn.addEventListener('click', () => {
+          answers = {};
+          isChecked = false;
+          renderQuiz();
+        });
+
+        renderQuiz();
+      })();
+    </script>
+  </body>
+</html>
